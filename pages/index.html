@@ -1,0 +1,134 @@
+<!--
+title: Student group trips from Lahore to Northern Pakistan
+description: Affordable, carefully planned group trips for university students in Lahore, starting with a proposed weekend in Nathiagali and Ayubia.
+nav: home
+css: home-page, trips, destinations, articles, content
+header: over-hero
+bodyClass: page-home
+-->
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    {{hero-art}}
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__low" data-animate="rise">Lahore, 217&nbsp;m</span>
+          <span class="hero__to" data-animate="rise" style="--d:1"><span class="hero__to-line" aria-hidden="true"></span>to</span>
+          <span class="hero__high" data-animate="rise" style="--d:2">Nathiagali, 2,410&nbsp;m</span>
+          <span class="hero__in" data-animate="rise" style="--d:3">in one weekend.</span>
+        </h1>
+        <p class="hero__lede" data-animate="rise" style="--d:4">Small, carefully planned group trips to the northern hills for university students in Lahore. Our first trip, to Nathiagali and Ayubia, is being planned now.</p>
+        <div class="hero__actions" data-animate="rise" style="--d:5">
+          <a class="btn btn--accent" href="{{root}}trips.html">Explore trips</a>
+          <a class="btn btn--ghost-light" href="{{root}}booking.html">Register interest</a>
+        </div>
+      </div>
+      <div class="hero__side" data-animate="rise" style="--d:6">{{hero-trip}}</div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="first-trip-h">
+    <div class="container">
+      <div class="section__head section__head--split">
+        <h2 class="section__title" id="first-trip-h">The first trip</h2>
+        <p class="section__text">Two days in the pine forests of the Galiyat. We are collecting interest before we book anything, so the plan can still change. <a href="{{root}}trips.html">See all trips</a></p>
+      </div>
+      {{trip-proposed-note}}
+      <div class="ticket-list" data-reveal-group>
+        {{upcoming-trips}}
+      </div>
+    </div>
+  </section>
+
+  <section class="climb" aria-labelledby="climb-h">
+    <div class="container">
+      <div class="climb__head">
+        <h2 class="climb__title" id="climb-h">Two kilometres up, in a day</h2>
+        <p class="climb__text">North on the motorway to Islamabad, then up through Murree into the Galiyat, where the air is cooler and the hills are covered in deodar and blue pine.</p>
+      </div>
+      {{route}}
+      <p class="climb__more"><a class="link-arrow" href="{{route-trip-link}}">See the day-by-day plan</a></p>
+    </div>
+  </section>
+
+  <section class="section principles" aria-labelledby="principles-h">
+    <div class="container principles__inner">
+      <div class="principles__lead">
+        <h2 class="section__title" id="principles-h">How we run trips</h2>
+        <p class="principles__statement">We are new, so we won't ask you to take our word for anything. Here is what you can hold us to.</p>
+        <a class="link-arrow" href="{{root}}our-approach.html">Read how we plan</a>
+      </div>
+      <dl class="principles__list" data-reveal-group>
+        <div class="principle" data-animate="rise">
+          <dt>Nothing is confirmed until it's in writing</dt>
+          <dd>Proposed trips are labelled proposed. You'll get the date, price, coach company and place we stay in writing before you pay a rupee.</dd>
+        </div>
+        <div class="principle" data-animate="rise" style="--d:1">
+          <dt>The price you see is the price you pay</dt>
+          <dd>Each trip lists what is and isn't included. If something isn't on the written confirmation, it isn't included, and we'll say so up front.</dd>
+        </div>
+        <div class="principle" data-animate="rise" style="--d:2">
+          <dt>Coordinators travel with every group</dt>
+          <dd>Headcounts at every stop, emergency contacts on paper, separate rooms for male and female participants, and a plan for bad weather.</dd>
+        </div>
+        <div class="principle" data-animate="rise" style="--d:3">
+          <dt>We'd rather postpone than push on</dt>
+          <dd>If snow, rain or road conditions make the trip unsafe, we move the date. We check advisories before every departure.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--alt steps-section" aria-labelledby="steps-h">
+    <div class="container">
+      <h2 class="section__title" id="steps-h">How booking works</h2>
+      <ol class="steps" data-reveal-group>
+        <li class="step" data-animate="rise"><span class="step__n" aria-hidden="true">1</span><h3 class="step__title">Register interest</h3><p>Fill in a short form or message us on WhatsApp. It's free and doesn't commit you to anything.</p></li>
+        <li class="step" data-animate="rise" style="--d:1"><span class="step__n" aria-hidden="true">2</span><h3 class="step__title">We confirm the details</h3><p>Once enough people are interested, we book the coach and the stay, then message you the final date, price and itinerary.</p></li>
+        <li class="step" data-animate="rise" style="--d:2"><span class="step__n" aria-hidden="true">3</span><h3 class="step__title">You decide and pay</h3><p>If it suits you, pay by the method we share in writing. Your seat is confirmed when we confirm it to you in writing.</p></li>
+        <li class="step" data-animate="rise" style="--d:3"><span class="step__n" aria-hidden="true">4</span><h3 class="step__title">Travel together</h3><p>A packing list and briefing before departure, then two days in the hills with your group.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="dest-h">
+    <div class="container">
+      <div class="section__head section__head--split">
+        <h2 class="section__title" id="dest-h">Where we're looking</h2>
+        <p class="section__text">We start close to home in the Galiyat. The guides for places further north are here to help you plan, even before we run trips there. <a href="{{root}}destinations.html">All destinations</a></p>
+      </div>
+      <div class="dest-feature" data-reveal-group>
+        {{featured-destinations}}
+      </div>
+    </div>
+  </section>
+
+  {{testimonials}}
+
+  <section class="section section--alt" aria-labelledby="journal-h">
+    <div class="container">
+      <div class="section__head section__head--split">
+        <h2 class="section__title" id="journal-h">From the travel journal</h2>
+        <p class="section__text">Budgets, packing lists, seasons and how to check a tour operator before you pay. <a href="{{root}}articles.html">Read the journal</a></p>
+      </div>
+      <div class="journal-grid">
+        {{journal}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="home-faq-h">
+    <div class="container home-faq">
+      <div class="home-faq__head">
+        <h2 class="section__title" id="home-faq-h">Before you register</h2>
+        <p class="section__text">The questions students ask us most. <a href="{{root}}faq.html">All questions</a></p>
+      </div>
+      <div class="faq-list">
+        {{home-faqs}}
+      </div>
+    </div>
+  </section>
+
+  {{cta-band}}
+</main>

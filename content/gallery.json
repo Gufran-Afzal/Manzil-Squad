@@ -1,0 +1,14 @@
+{
+  "_readme": "Gallery items reference image keys in content/images.json. While every image is a placeholder illustration, the gallery page shows a clear notice saying so. Only add photos of people with their permission.",
+  "items": [
+    { "image": "galiyat-morning", "caption": "Forested ridges in morning light", "category": "Galiyat" },
+    { "image": "ayubia-trail", "caption": "Forest in Ayubia", "category": "Galiyat" },
+    { "image": "winter-hills", "caption": "The hills in winter", "category": "Seasons" },
+    { "image": "monsoon-mist", "caption": "Monsoon cloud over the forest", "category": "Seasons" },
+    { "image": "dusk-ridges", "caption": "Evening over the ridges", "category": "Galiyat" },
+    { "image": "swat-valley", "caption": "A river valley in Swat", "category": "Further north" },
+    { "image": "naran-lake", "caption": "A lake in the Kaghan valley", "category": "Further north" },
+    { "image": "hunza-peaks", "caption": "High peaks above Hunza", "category": "Further north" },
+    { "image": "murree-dusk", "caption": "Dusk in the Murree hills", "category": "Galiyat" }
+  ]
+}

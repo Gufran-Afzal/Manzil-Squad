@@ -1,0 +1,30 @@
+{
+  "name": "student-travel-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static website for a Lahore-based student group-travel brand. Zero runtime dependencies; builds to plain HTML/CSS/JS for GitHub Pages.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "build:release": "node build.mjs --strict",
+    "dev": "node build.mjs --dev && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs",
+    "preview:base": "node scripts/serve.mjs --base /student-travel-site/",
+    "validate": "node scripts/validate-content.mjs",
+    "check-links": "node scripts/check-links.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "test": "node scripts/test-whatsapp.mjs && node scripts/test-apps-script.mjs && node build.mjs && node scripts/check-links.mjs",
+    "images:art": "node scripts/generate-artwork.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "mock:forms": "node scripts/mock-apps-script.mjs",
+    "test:apps-script": "node scripts/test-apps-script.mjs",
+    "test:whatsapp": "node scripts/test-whatsapp.mjs",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  }
+}

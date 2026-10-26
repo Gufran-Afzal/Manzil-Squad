@@ -1,0 +1,35 @@
+<!--
+title: Register interest in a trip
+description: Register your interest in an upcoming student trip from Lahore. Free, no payment, and no commitment until we confirm the details in writing.
+nav:
+css: booking, trips
+hideFloatingWa: true
+-->
+<main id="main">
+  <section class="page-hero page-hero--compact">
+    <div class="container page-hero__inner">
+      {{crumbs}}
+      <h1 class="page-hero__title" data-animate="rise">Register interest</h1>
+      <p class="page-hero__lede" data-animate="rise" style="--d:1">Tell us you'd like to come. It takes a minute, it's free, and it doesn't reserve a seat or commit you to paying.</p>
+    </div>
+  </section>
+  <section class="section section--tight">
+    <div class="container booking-layout">
+      <div class="booking-layout__form">
+        {{form}}
+      </div>
+      <aside class="booking-layout__aside" aria-labelledby="next-h">
+        <h2 class="aside-title" id="next-h">What happens next</h2>
+        <ol class="next-steps">
+          <li><strong>You get a reference number</strong> straight away. Keep it: it helps us find your request.</li>
+          <li><strong>We count the interest.</strong> The trip goes ahead only if enough people register.</li>
+          <li><strong>We confirm the details</strong> and message you with the final date, price and itinerary.</li>
+          <li><strong>You decide.</strong> Your seat is confirmed only after payment and our written confirmation.</li>
+        </ol>
+        <h2 class="aside-title">Open for registration</h2>
+        <ul class="trip-mini">{{trip-summaries}}</ul>
+        <p class="aside-note">We ask only for what we need to contact you. Never send CNIC images, bank details or medical information through this form.</p>
+      </aside>
+    </div>
+  </section>
+</main>

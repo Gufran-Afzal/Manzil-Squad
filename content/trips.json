@@ -1,0 +1,130 @@
+[
+  {
+    "id": "galiyat-weekend-01",
+    "slug": "nathiagali-ayubia-weekend",
+    "title": "Nathiagali and Ayubia weekend",
+    "destinationIds": ["nathiagali", "ayubia"],
+    "summary": "A proposed two-day, one-night coach trip from Lahore to the pine forests of the Galiyat, with an easy forest walk on the Pipeline Track between Dunga Gali and Ayubia.",
+    "description": [
+      "This is our first planned trip and it is still being put together. We are collecting registrations of interest so we know whether there is enough demand before we book transport and accommodation.",
+      "The plan is simple: leave Lahore early, reach the Galiyat by the afternoon, spend the evening around Nathiagali, walk the Pipeline Track the next morning and return to Lahore the same night. The pace suits first-time hill travellers and the walking is gentle.",
+      "Nothing below is final. Dates, the exact price, the coach company and the place we stay will be confirmed in writing before anyone is asked to pay."
+    ],
+    "heroImage": "galiyat-ridges",
+    "gallery": ["ayubia-forest", "galiyat-morning", "monsoon-mist"],
+    "duration": { "days": 2, "nights": 1 },
+    "price": {
+      "amount": null,
+      "estimateMin": 10000,
+      "estimateMax": 15000,
+      "currency": "PKR",
+      "status": "estimate",
+      "note": "Expected range per person. The final price depends on the coach, accommodation and group size, and will be confirmed before any payment is requested."
+    },
+    "dates": {
+      "status": "proposed",
+      "start": null,
+      "end": null,
+      "note": "Date to be announced once there is enough interest and suppliers are confirmed."
+    },
+    "availability": "interest",
+    "group": { "min": 30, "max": 50, "note": "Planned group size. The trip only goes ahead if the minimum is reached." },
+    "inclusions": {
+      "status": "planned",
+      "items": [
+        "Return coach travel from a pickup point in Lahore",
+        "One night of shared accommodation, with separate rooms for male and female participants",
+        "Meals as listed in the final itinerary",
+        "Trip coordinators travelling with the group"
+      ]
+    },
+    "exclusions": [
+      "Personal expenses, snacks and shopping",
+      "Chairlift or other attraction tickets, unless the final itinerary says otherwise",
+      "Travel or medical insurance",
+      "Anything not listed in the final, written trip confirmation"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Lahore to the Galiyat",
+        "stops": [
+          { "time": "Early morning", "title": "Depart Lahore", "text": "Meet at the pickup point. Coordinators check names against the confirmed list before boarding." },
+          { "time": "Midday", "title": "Motorway and rest stop", "text": "Travel north by motorway with a stop for food and prayers. Expect a long day on the road." },
+          { "time": "Afternoon", "title": "Arrive in the hills", "text": "Climb from the plains through Murree towards Nathiagali, then check in and rest." },
+          { "time": "Evening", "title": "Nathiagali walk", "text": "An easy walk around the Nathiagali bazaar and to St. Matthew's Church, a wooden church from the colonial period. Dinner and a group briefing for the next day." }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Pipeline Track and the return",
+        "stops": [
+          { "time": "Morning", "title": "Pipeline Track", "text": "Walk the roughly 4 km forest track between Dunga Gali and Ayubia, inside Ayubia National Park. Mostly level, shaded and suitable for beginners." },
+          { "time": "Late morning", "title": "Time in Ayubia", "text": "Free time in Ayubia. The chairlift is optional and only if it is operating that day." },
+          { "time": "Afternoon", "title": "Head back south", "text": "Lunch, then board the coach for the return journey." },
+          { "time": "Night", "title": "Arrive in Lahore", "text": "Drop-off at the original pickup point. The arrival time depends on traffic and weather." }
+        ]
+      }
+    ],
+    "itineraryNote": "This is a draft outline. Exact timings, meal stops and the order of activities will be confirmed in the final itinerary.",
+    "route": [
+      { "name": "Lahore", "km": 0, "elevation": 217 },
+      { "name": "Islamabad", "km": 375, "elevation": 540 },
+      { "name": "Murree", "km": 435, "elevation": 2291 },
+      { "name": "Nathiagali", "km": 470, "elevation": 2410 },
+      { "name": "Ayubia", "km": 480, "elevation": 2400 }
+    ],
+    "routeNote": "Distances are rounded road estimates and elevations are approximate town elevations. Check both before relying on them for planning.",
+    "transport": {
+      "status": "unconfirmed",
+      "summary": "A hired coach from a transport company we have checked ourselves. The supplier has not been chosen yet.",
+      "details": [
+        "We will share the coach company's name and the driver's contact number before departure.",
+        "No overnight driving in winter snow conditions; departure may be moved if the weather is unsafe."
+      ]
+    },
+    "accommodation": {
+      "status": "unconfirmed",
+      "summary": "Shared rooms in a hotel or guest house in or near Nathiagali. The property has not been chosen yet.",
+      "details": [
+        "Separate rooms for male and female participants.",
+        "Room sharing (for example three or four to a room) will be stated in the final confirmation."
+      ]
+    },
+    "meals": {
+      "status": "unconfirmed",
+      "summary": "Which meals are included will be listed in the final itinerary."
+    },
+    "packing": [
+      "A warm jacket, even in summer: evenings in the hills are much colder than Lahore",
+      "Comfortable walking shoes with grip",
+      "A light rain jacket during the monsoon months",
+      "Your original CNIC or student card, carried on you",
+      "Any personal medicines, with a copy of the prescription",
+      "A power bank and a small torch",
+      "A reusable water bottle"
+    ],
+    "safety": [
+      "Coordinators will keep a headcount at every stop and a written list of emergency contacts.",
+      "We will check weather and road advisories before departure and will postpone if conditions are unsafe.",
+      "Stay with the group on forest trails. Wildlife, including rhesus macaques, lives in Ayubia National Park: do not feed animals.",
+      "Tell the coordinators privately, before the trip, about anything that could affect your safety on a walk."
+    ],
+    "bookingTerms": [
+      "Registering interest does not reserve a seat and does not commit you to pay.",
+      "A seat is confirmed only when we confirm it to you in writing after receiving your payment.",
+      "Payment methods and deadlines will be shared in writing once the trip is confirmed."
+    ],
+    "faqs": [
+      { "q": "Is this trip confirmed?", "a": "Not yet. It is a proposed trip. We will only confirm it once enough people have registered interest and we have confirmed transport and accommodation." },
+      { "q": "How hard is the walking?", "a": "The Pipeline Track is about 4 km and mostly level. If you can walk for an hour at an easy pace, you should be comfortable." },
+      { "q": "Can I come if I'm not a UOL student?", "a": "Yes. The trip is planned for students from any university. You may be asked to show a valid student card." }
+    ],
+    "relatedArticles": ["nathiagali-ayubia-travel-guide", "northern-pakistan-packing-checklist", "best-time-to-visit-galiyat", "tour-booking-checklist"],
+    "seo": {
+      "title": "Nathiagali and Ayubia weekend trip from Lahore for students",
+      "description": "A proposed 2-day, 1-night student group trip from Lahore to Nathiagali and Ayubia. Register your interest; dates and the final price are not yet confirmed."
+    },
+    "updated": "2026-10-26"
+  }
+]

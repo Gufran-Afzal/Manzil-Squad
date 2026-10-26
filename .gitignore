@@ -1,0 +1,12 @@
+# build output (GitHub Actions builds it fresh on every push)
+dist/
+
+# dependencies (only the optional image tool uses them)
+node_modules/
+
+# full-size photos: keep originals out of the repository if they are large
+assets/img/originals/
+
+.DS_Store
+Thumbs.db
+*.log

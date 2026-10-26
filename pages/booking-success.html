@@ -1,0 +1,36 @@
+<!--
+title: After you register
+description: What happens after you register interest in a trip.
+nav:
+css: booking
+noindex: true
+-->
+<main id="main">
+  <section class="page-hero page-hero--compact">
+    <div class="container page-hero__inner">
+      <h1 class="page-hero__title" data-success-title>After you register</h1>
+      <p class="page-hero__lede">A registration request is not a booking: no seat is reserved and you don't need to pay anything now.</p>
+    </div>
+  </section>
+  <section class="section section--tight">
+    <div class="container container--narrow success">
+      <div class="ref-card" data-ref-card hidden>
+        <p class="ref-card__label">Your request was saved. Your reference:</p>
+        <p class="ref-card__ref" data-ref-value></p>
+        <p class="ref-card__trip" data-ref-trip></p>
+        <button class="btn btn--quiet btn--small" type="button" data-copy-ref>Copy reference</button>
+      </div>
+      <h2 class="aside-title">What happens next</h2>
+      <ol class="next-steps">
+        <li><strong>We count the interest.</strong> The trip goes ahead only if enough people register.</li>
+        <li><strong>We contact you</strong> using the method you chose, with the final date, price, itinerary and payment details.</li>
+        <li><strong>You decide.</strong> Your seat is confirmed only after payment and our written confirmation.</li>
+      </ol>
+      <p>Haven't heard from us, or want to change something? Message us and include your reference.</p>
+      <div class="success__actions">
+        {{whatsapp-followup}}
+        <a class="btn btn--quiet" href="{{root}}trips.html">Back to trips</a>
+      </div>
+    </div>
+  </section>
+</main>

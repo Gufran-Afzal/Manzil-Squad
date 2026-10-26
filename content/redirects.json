@@ -1,0 +1,4 @@
+{
+  "_readme": "Old address → new address, both relative to the site root, e.g. \"trip.html\": \"trips.html\". The build writes a small page at each old address that sends visitors (and search engines, via a canonical link) to the new one. GitHub Pages can't do server redirects, so this is the closest equivalent.",
+  "redirects": {}
+}

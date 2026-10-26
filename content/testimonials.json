@@ -1,0 +1,12 @@
+{
+  "_readme": "Only add testimonials from real participants of a trip that actually happened, with their written permission to publish their words and name. Record where and when consent was given (consentRecord) so you can prove it. Do not add star ratings or edit quotes beyond fixing typos. The site hides every testimonial section while this list is empty.",
+  "_example": {
+    "quote": "The participant's own words.",
+    "name": "First name, or first name and initial",
+    "university": "Optional, only with permission",
+    "tripId": "galiyat-weekend-01",
+    "date": "YYYY-MM-DD",
+    "consentRecord": "e.g. WhatsApp message on YYYY-MM-DD, saved in the team drive"
+  },
+  "items": []
+}

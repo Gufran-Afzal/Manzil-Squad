@@ -1,0 +1,117 @@
+/* ==================================================================
+   design-tokens.css — the whole visual system in one place.
+
+   To re-theme the site, change the values in :root below. Every other
+   stylesheet uses these variables, so a colour or font changed here
+   changes everywhere. See docs/CONTENT_GUIDE.md → "Changing the theme".
+
+   Palette (all text pairs checked for WCAG AA contrast):
+     deodar    #1E3A2F  deep forest green: dark sections, headers
+     pine      #122019  near-black ink: body text, darkest surfaces
+     limestone #EEECE4  warm off-white: page background
+     paper     #F7F6F1  lighter surface for cards and forms
+     stone     #B5AE9F  neutral lines and quiet details
+     haze      #8FA3AC  the blue of distant ridges
+     amber     #E3A43A  headlamp amber: the single accent (CTAs, focus)
+   ================================================================== */
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('../assets/fonts/archivo-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newsreader';
+  src: url('../assets/fonts/newsreader-variable.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newsreader';
+  src: url('../assets/fonts/newsreader-variable-italic.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* colour */
+  --c-deodar: #1E3A2F;
+  --c-deodar-2: #274A3C;
+  --c-pine: #122019;
+  --c-limestone: #EEECE4;
+  --c-paper: #F7F6F1;
+  --c-stone: #B5AE9F;
+  --c-stone-2: #D9D5CA;
+  --c-haze: #8FA3AC;
+  --c-accent: #E3A43A;
+  --c-accent-2: #EDB65A;
+  --c-accent-ink: #8A5A12;          /* amber dark enough for text on light */
+
+  --c-text: var(--c-pine);
+  --c-text-muted: #5C5950;
+  --c-text-on-dark: var(--c-limestone);
+  --c-text-on-dark-muted: #B8C4BC;
+  --c-bg: var(--c-limestone);
+  --c-surface: var(--c-paper);
+  --c-line: rgba(18, 32, 25, 0.14);
+  --c-line-strong: rgba(18, 32, 25, 0.28);
+  --c-line-on-dark: rgba(238, 236, 228, 0.18);
+
+  --c-ok: #2F6B4A;
+  --c-warn: var(--c-accent-ink);
+  --c-error: #9B3D2E;
+
+  /* type */
+  --f-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --f-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --stretch-display: 72%;           /* Archivo width axis: condensed display */
+  --stretch-ui: 100%;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+  --fs-xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.625rem);
+  --fs-2xl: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --fs-display: clamp(2.75rem, 1rem + 7.5vw, 8rem);
+
+  --lh-tight: 0.95;
+  --lh-head: 1.08;
+  --lh-body: 1.6;
+  --lh-serif: 1.68;
+
+  /* space (based on 4px) */
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
+  --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem; --s-10: 8rem;
+  --section-y: clamp(3.5rem, 2rem + 6vw, 7.5rem);
+
+  /* layout */
+  --container: 1240px;
+  --container-narrow: 760px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --header-h: 68px;
+  --measure: 66ch;
+
+  /* shape: restrained, hierarchy-based radii */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-pill: 999px;
+
+  /* depth */
+  --sh-1: 0 1px 0 rgba(18, 32, 25, 0.05), 0 10px 30px -18px rgba(18, 32, 25, 0.45);
+  --sh-2: 0 1px 0 rgba(18, 32, 25, 0.06), 0 24px 48px -24px rgba(18, 32, 25, 0.5);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+  --dur-3: 720ms;
+}

@@ -1,0 +1,269 @@
+[
+  {
+    "id": "nathiagali",
+    "slug": "nathiagali",
+    "name": "Nathiagali",
+    "region": "Galiyat",
+    "province": "Khyber Pakhtunkhwa",
+    "elevation": "About 2,410 m",
+    "summary": "The central hill station of the Galiyat, known for dense pine and oak forest, cool summers and quiet walks.",
+    "description": [
+      "Nathiagali sits in the middle of the Galiyat, a chain of small hill resorts along the ridge between Murree and Abbottabad. It is quieter and more forested than Murree, which makes it a good first trip to the hills.",
+      "Most visitors come for the forest walks, the views from the ridges and the cooler air. The town itself is small: a short bazaar, guest houses and hotels, and a wooden church from the colonial period."
+    ],
+    "heroImage": "galiyat-ridges",
+    "gallery": ["galiyat-morning", "monsoon-mist", "winter-hills"],
+    "attractions": [
+      { "name": "Mushkpuri Top", "text": "At about 2,800 m, the second-highest peak in the Galiyat. The route from Nathiagali is a steady climb of about 4 km. Only for groups with good fitness and good weather." },
+      { "name": "Pipeline Track", "text": "A mostly level, shaded forest walk of about 4 km between Dunga Gali and Ayubia." },
+      { "name": "St. Matthew's Church", "text": "A wooden church from the colonial period on the edge of the ridge." },
+      { "name": "Miranjani", "text": "The highest peak in the Galiyat at about 2,992 m. A longer, harder hike that needs a local guide and an early start." }
+    ],
+    "seasons": {
+      "summary": "Summer is cool and green; the monsoon brings near-daily rain from July to mid-September; winter brings cold and, in some years, heavy snow.",
+      "notes": [
+        "Winter runs roughly from November to February. Snowfall has become more common in February than in December or January.",
+        "Monsoon rain can make trails slippery and roads slow.",
+        "Weekends and public holidays can bring heavy traffic on the roads up from Murree."
+      ],
+      "source": { "label": "Wikipedia: Nathia Gali", "url": "https://en.wikipedia.org/wiki/Nathia_Gali" },
+      "reviewed": "2026-10-26"
+    },
+    "travelAdvice": [
+      "Pack a warm layer in every season. Evenings are much colder than in Lahore.",
+      "Mobile signal varies between networks. Download offline maps before you leave.",
+      "Book accommodation directly with a property you can verify, or through an operator who names the property in writing."
+    ],
+    "safety": [
+      "Do not attempt Mushkpuri or Miranjani in fog, snow or late in the day.",
+      "Follow Pakistan Meteorological Department and local administration advisories during heavy snow.",
+      "In heavy snowfall, never stay in a parked car with the engine running: snow can block the exhaust."
+    ],
+    "operating": "first-trip",
+    "relatedArticles": ["nathiagali-ayubia-travel-guide", "best-time-to-visit-galiyat", "murree-vs-nathiagali"],
+    "seo": {
+      "title": "Nathiagali travel guide for students",
+      "description": "What to expect in Nathiagali: forest walks, seasons, safety advice and our proposed student trip from Lahore."
+    },
+    "lastReviewed": "2026-10-26"
+  },
+  {
+    "id": "ayubia",
+    "slug": "ayubia",
+    "name": "Ayubia",
+    "region": "Galiyat",
+    "province": "Khyber Pakhtunkhwa",
+    "elevation": "About 2,400 m",
+    "summary": "A protected forest area with a well-known walking track, a chairlift and some of the oldest conifer forest near Islamabad.",
+    "description": [
+      "Ayubia National Park was established in 1984 and covers about 3,312 hectares of temperate conifer and broadleaf forest. It includes the small resorts of Khaira Gali, Changla Gali, Khanspur and Ghora Dhaka.",
+      "For most visitors, Ayubia means the Pipeline Track: a shaded forest walk of about 4 km towards Dunga Gali. The park is also home to rhesus macaques, more than 200 recorded bird species and, rarely seen, the leopard."
+    ],
+    "heroImage": "ayubia-forest",
+    "gallery": ["ayubia-trail", "monsoon-mist", "galiyat-morning"],
+    "attractions": [
+      { "name": "Pipeline Track", "text": "About 4 km, mostly level, through deodar, blue pine and oak forest." },
+      { "name": "Ayubia chairlift", "text": "Described as Pakistan's first facility of its kind. Check that it is operating on the day you visit." },
+      { "name": "Birdwatching", "text": "The park's species list includes kalij and koklass pheasants. Early mornings are best." }
+    ],
+    "seasons": {
+      "summary": "Late spring to autumn is the most comfortable walking season. Winter can close or ice over trails.",
+      "notes": [
+        "Monsoon months bring lush forest but slippery paths and leeches on some trails.",
+        "In winter, check whether the chairlift and the Pipeline Track are open before travelling."
+      ],
+      "source": { "label": "Wikipedia: Ayubia National Park", "url": "https://en.wikipedia.org/wiki/Ayubia_National_Park" },
+      "reviewed": "2026-10-26"
+    },
+    "travelAdvice": [
+      "Start the Pipeline Track early to avoid crowds.",
+      "Carry water; there are few reliable stops on the track itself.",
+      "Keep food out of sight. Macaques will take bags."
+    ],
+    "safety": [
+      "Do not feed or approach monkeys.",
+      "Stay on the marked track and keep the group together.",
+      "Carry litter out with you: the park is a protected area."
+    ],
+    "operating": "first-trip",
+    "relatedArticles": ["nathiagali-ayubia-travel-guide", "northern-pakistan-packing-checklist"],
+    "seo": {
+      "title": "Ayubia National Park guide for first-time visitors",
+      "description": "Ayubia National Park: the Pipeline Track, the chairlift, wildlife and seasonal advice for student travellers from Lahore."
+    },
+    "lastReviewed": "2026-10-26"
+  },
+  {
+    "id": "murree",
+    "slug": "murree",
+    "name": "Murree",
+    "region": "Murree hills",
+    "province": "Punjab",
+    "elevation": "About 2,290 m",
+    "summary": "Pakistan's best-known hill station: lively, close to Islamabad and often very crowded.",
+    "description": [
+      "Murree is the hill station most Pakistanis visit first. Its Mall Road, viewpoints and easy access from Islamabad make it busy all year, and especially on weekends and holidays.",
+      "For a group trip, Murree is usually a place to pass through on the way to the quieter Galiyat rather than a place to stay."
+    ],
+    "heroImage": "murree-dusk",
+    "gallery": ["dusk-ridges", "winter-hills"],
+    "attractions": [
+      { "name": "Mall Road", "text": "The main colonial-era street, lined with shops and food stalls." },
+      { "name": "Viewpoints", "text": "Several roadside viewpoints overlook the surrounding hills. Expect crowds at sunset." }
+    ],
+    "seasons": {
+      "summary": "Cool summers and cold, snowy winters. Snow attracts very large crowds.",
+      "notes": [
+        "In January 2022, 23 people died in vehicles stranded during a severe snowstorm, after far more cars entered the town than its roads could handle.",
+        "In snow season, follow official traffic restrictions and weather warnings."
+      ],
+      "source": { "label": "Wikipedia: 2022 Murree snowstorm", "url": "https://en.wikipedia.org/wiki/2022_Murree_snowstorm" },
+      "reviewed": "2026-10-26"
+    },
+    "travelAdvice": [
+      "Avoid arriving on snowfall weekends unless you have confirmed accommodation and a clear route out.",
+      "Agree prices before you buy food or rides on Mall Road."
+    ],
+    "safety": [
+      "Never run a car engine for warmth when it is surrounded by snow.",
+      "Keep fuel, water, warm clothes and food in the vehicle in winter."
+    ],
+    "operating": "none",
+    "relatedArticles": ["murree-vs-nathiagali", "best-time-to-visit-galiyat"],
+    "seo": {
+      "title": "Murree for student travellers: what to know",
+      "description": "An honest overview of Murree for students: crowds, seasons, winter safety and how it compares with Nathiagali."
+    },
+    "lastReviewed": "2026-10-26"
+  },
+  {
+    "id": "swat",
+    "slug": "swat",
+    "name": "Swat",
+    "region": "Swat valley",
+    "province": "Khyber Pakhtunkhwa",
+    "elevation": "From about 1,000 m in Mingora to over 2,000 m around Kalam",
+    "summary": "A long green river valley with Buddhist heritage sites, orchards, and high meadows and lakes around Kalam.",
+    "description": [
+      "Swat runs north from Mingora along the Swat River to Madyan, Bahrain and Kalam, with side valleys leading to lakes such as Mahodand. It suits a longer trip than a weekend from Lahore.",
+      "The lower valley has an important Gandharan Buddhist heritage, including the Swat Museum and stupa sites. Higher up, the landscape turns to forest, meadows and glacial streams."
+    ],
+    "heroImage": "swat-valley",
+    "gallery": ["monsoon-mist", "galiyat-morning"],
+    "attractions": [
+      { "name": "Kalam and Ushu", "text": "The upper valley around Kalam, with forest and river scenery." },
+      { "name": "Mahodand Lake", "text": "A lake above Kalam, usually reached by four-wheel-drive vehicle in the warmer months." },
+      { "name": "Malam Jabba", "text": "A hill resort near Saidu Sharif with a ski slope reaching about 2,800 m." },
+      { "name": "Swat Museum", "text": "Gandharan sculpture and local crafts between Mingora and Saidu Sharif." }
+    ],
+    "seasons": {
+      "summary": "Spring and early autumn are pleasant; summer is peak season; roads beyond Bahrain can be snowbound in winter.",
+      "notes": [
+        "During the monsoon, rivers can rise suddenly. On 27 June 2025, a flash flood on the Swat River near Mingora swept away a group of tourists who were on the riverbank.",
+        "Respect official bans on approaching or bathing in the river."
+      ],
+      "source": { "label": "The Friday Times, 27 June 2025", "url": "https://thefridaytimes.com/27-Jun-2025/flash-flood-in-swat-claims-nine-lives-search-continues-for-missing-tourists" },
+      "reviewed": "2026-10-26"
+    },
+    "travelAdvice": [
+      "Plan at least three or four days from Lahore.",
+      "Carry your original CNIC: there are security checkpoints.",
+      "Use bottled or treated water."
+    ],
+    "safety": [
+      "Stay well away from riverbanks during rain or after rain upstream.",
+      "Check road conditions to Kalam and beyond before travelling."
+    ],
+    "operating": "none",
+    "relatedArticles": ["swat-valley-first-timers-guide", "northern-pakistan-student-budget"],
+    "seo": {
+      "title": "Swat valley guide for first-time student travellers",
+      "description": "An introduction to Swat for students: Kalam, Mahodand, Malam Jabba, seasons and river safety."
+    },
+    "lastReviewed": "2026-10-26"
+  },
+  {
+    "id": "naran-kaghan",
+    "slug": "naran-kaghan",
+    "name": "Naran and Kaghan",
+    "region": "Kaghan valley",
+    "province": "Khyber Pakhtunkhwa",
+    "elevation": "About 2,400 m at Naran; higher at the lakes and passes",
+    "summary": "A summer valley of glacial lakes and high meadows, with Lake Saiful Muluk above Naran.",
+    "description": [
+      "The Kaghan valley follows the Kunhar River north towards the Babusar Pass. Naran is the main base, and Lake Saiful Muluk is the best-known day trip from it.",
+      "The upper valley is a summer destination. Much of it is cut off or unsafe in winter, so trips need to fit the season."
+    ],
+    "heroImage": "naran-lake",
+    "gallery": ["winter-hills", "monsoon-mist"],
+    "attractions": [
+      { "name": "Lake Saiful Muluk", "text": "A glacial lake above Naran, usually reached by jeep." },
+      { "name": "Babusar Pass", "text": "A high pass at the top of the valley, open only in the warmer months." }
+    ],
+    "seasons": {
+      "summary": "Mainly a summer destination. Check whether the road beyond Naran and the Babusar Pass are open before planning.",
+      "notes": [
+        "Opening dates vary each year with snow conditions. Check official road updates close to travel."
+      ],
+      "source": { "label": "Check current road status with local authorities before travel", "url": "" },
+      "reviewed": "2026-10-26"
+    },
+    "travelAdvice": [
+      "Allow at least three to four days from Lahore.",
+      "Book jeeps through a source you can verify and agree the price in advance."
+    ],
+    "safety": [
+      "Landslides can close roads during the monsoon.",
+      "Altitude near the passes can cause headaches and breathlessness; ascend gradually."
+    ],
+    "operating": "none",
+    "relatedArticles": ["northern-pakistan-student-budget", "northern-pakistan-packing-checklist"],
+    "seo": {
+      "title": "Naran and Kaghan valley: a summer guide for students",
+      "description": "An overview of the Kaghan valley for student travellers: Naran, Lake Saiful Muluk, seasons and safety."
+    },
+    "lastReviewed": "2026-10-26"
+  },
+  {
+    "id": "hunza",
+    "slug": "hunza",
+    "name": "Hunza",
+    "region": "Gilgit-Baltistan",
+    "province": "Gilgit-Baltistan",
+    "elevation": "About 2,400 to 2,500 m in the central valley",
+    "summary": "A high mountain valley on the Karakoram Highway, surrounded by some of the world's tallest peaks.",
+    "description": [
+      "Hunza lies along the Karakoram Highway in Gilgit-Baltistan, with forts, orchards and views of peaks above 7,000 m. Attabad Lake, formed by a landslide in 2010, is now one of its best-known sights.",
+      "It is a long journey from Lahore and suits a trip of a week or more, not a weekend."
+    ],
+    "heroImage": "hunza-peaks",
+    "gallery": ["dusk-ridges", "winter-hills"],
+    "attractions": [
+      { "name": "Karimabad", "text": "The main town in central Hunza, with Baltit Fort above it." },
+      { "name": "Attabad Lake", "text": "A turquoise lake formed when a landslide blocked the Hunza River in 2010." }
+    ],
+    "seasons": {
+      "summary": "Spring blossom and autumn colour are popular; winters are very cold.",
+      "notes": [
+        "Travel times on the Karakoram Highway change with landslides and roadworks. Check conditions before departure."
+      ],
+      "source": { "label": "Check current road status with local authorities before travel", "url": "" },
+      "reviewed": "2026-10-26"
+    },
+    "travelAdvice": [
+      "Allow at least a week from Lahore by road.",
+      "Domestic flights to Gilgit are weather-dependent and can be cancelled at short notice."
+    ],
+    "safety": [
+      "Build spare days into the plan for road closures.",
+      "Carry warm clothes in every season."
+    ],
+    "operating": "none",
+    "relatedArticles": ["northern-pakistan-student-budget", "northern-pakistan-packing-checklist"],
+    "seo": {
+      "title": "Hunza valley: an introduction for student travellers",
+      "description": "An introduction to Hunza for students planning a longer northern trip: seasons, distances and safety."
+    },
+    "lastReviewed": "2026-10-26"
+  }
+]

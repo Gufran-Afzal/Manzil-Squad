@@ -1,0 +1,91 @@
+{
+  "_readme": "Answers here are shown publicly. Keep them factual. Answers marked \"pending\": true describe a policy that has not been finalised yet; the site labels them as such. Set \"home\": true to also show a question on the homepage.",
+  "groups": [
+    {
+      "id": "booking",
+      "title": "Registering and booking",
+      "items": [
+        {
+          "id": "register-interest",
+          "home": true,
+          "q": "How do I register interest in a trip?",
+          "a": "Open the trip page and use the registration form, or message us on WhatsApp. Registering interest is free and does not commit you to anything. It helps us judge whether a trip has enough demand to go ahead."
+        },
+        {
+          "id": "booking-confirmed",
+          "home": true,
+          "q": "When is my seat actually confirmed?",
+          "a": "Only when we confirm it to you in writing after receiving your payment. Submitting a form or sending a WhatsApp message does not reserve a seat."
+        },
+        {
+          "id": "price-includes",
+          "home": true,
+          "q": "What does the price include?",
+          "a": "Each trip page lists what is planned to be included and excluded. The final, written trip confirmation is the version that counts. If something isn't listed there, assume it isn't included."
+        },
+        {
+          "id": "payment-methods",
+          "q": "How do I pay?",
+          "pending": true,
+          "a": "Payment methods have not been finalised yet. We will share them in writing, with the account holder's name, once a trip is confirmed. We will never ask you to pay through a form on this website, and we will never ask for your card details or passwords."
+        }
+      ]
+    },
+    {
+      "id": "changes",
+      "title": "Changes, cancellations and refunds",
+      "items": [
+        {
+          "id": "cancellation-refunds",
+          "q": "What if I need to cancel?",
+          "pending": true,
+          "a": "Our cancellation and refund policy is still a draft and has not had legal review. We will share the final policy in writing before you pay. You can read the current draft on the cancellation policy page."
+        },
+        {
+          "id": "minimum-group",
+          "q": "Is there a minimum group size?",
+          "a": "Yes. Each trip page shows its planned minimum. If the minimum isn't reached, the trip doesn't go ahead and we will tell everyone who registered."
+        },
+        {
+          "id": "postponed",
+          "home": true,
+          "q": "What happens if a trip is postponed?",
+          "pending": true,
+          "a": "We will postpone a trip if weather, road or safety conditions make it unsafe. If that happens after you have paid, you'll be offered the new date or the option set out in the final refund policy, which is still being written."
+        }
+      ]
+    },
+    {
+      "id": "on-trip",
+      "title": "On the trip",
+      "items": [
+        {
+          "id": "transport-accommodation",
+          "q": "What transport and accommodation do you use?",
+          "a": "For our first trip, the coach company and the place we stay have not been chosen yet. We will name both in your written confirmation before you pay. You can read how we choose suppliers on the How we plan page."
+        },
+        {
+          "id": "safety-arrangements",
+          "q": "What safety arrangements do you make?",
+          "a": "Coordinators travel with the group, keep headcounts and hold emergency contacts. We check weather and road advisories before departure and postpone if conditions are unsafe. The safety page explains this in full, including what we ask of participants."
+        },
+        {
+          "id": "what-to-bring",
+          "q": "What should I bring?",
+          "a": "A warm layer in every season, comfortable shoes with grip, your original CNIC or student card, any personal medicines, and a power bank. Each trip page has its own packing list, and our packing checklist article goes into more detail."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Getting in touch",
+      "items": [
+        {
+          "id": "contact-organisers",
+          "q": "How do I contact the organisers?",
+          "a": "Use the contact page to send a message or start a WhatsApp chat. If you've already registered, include your reference number so we can find your details quickly."
+        }
+      ]
+    }
+  ]
+}

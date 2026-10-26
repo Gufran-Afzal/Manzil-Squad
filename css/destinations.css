@@ -1,0 +1,14 @@
+/* ==================================================================
+   destinations.css — destination directory and detail pages
+   ================================================================== */
+.dest-grid { display: grid; gap: var(--s-7) var(--s-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.dest-layout { padding-block: var(--s-6) var(--s-6); }
+.dest-main { max-width: 820px; }
+.attractions { display: grid; gap: 0; }
+.attractions > div { display: grid; gap: var(--s-1) var(--s-6); padding: var(--s-4) 0; border-top: 1px solid var(--c-line); }
+.attractions > div:last-child { border-bottom: 1px solid var(--c-line); }
+.attractions dt { font-weight: 720; font-size: var(--fs-md); }
+.attractions dd { color: var(--c-text-muted); }
+@media (min-width: 720px) { .attractions > div { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); } }
+.dest-main .trip-section ul:not([class]) { padding-left: 1.2rem; display: grid; gap: var(--s-2); }
+.trip-hero--dest { min-height: max(520px, min(78svh, 780px)); }

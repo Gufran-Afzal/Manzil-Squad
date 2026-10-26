@@ -1,0 +1,104 @@
+{
+  "_readme": "CENTRAL CONFIGURATION. Every value marked TODO in docs/SETUP_CHECKLIST.md must be replaced with verified information before launch. Empty strings mean 'not configured' and the related feature hides itself. Never put passwords, private keys or API secrets in this file: it is published with the website.",
+
+  "brand": {
+    "name": "[Brand Name]",
+    "shortName": "[Brand]",
+    "tagline": "Weekend trips to the northern hills, planned around students.",
+    "description": "A Lahore-based group-travel project organising affordable, carefully planned trips to Northern Pakistan for university students, starting with the Galiyat hills."
+  },
+
+  "siteUrl": "",
+  "language": "en",
+  "locale": "en-PK",
+  "currency": "PKR",
+  "timezone": "Asia/Karachi",
+  "operatingRegion": "Lahore, Punjab, Pakistan",
+  "address": "",
+
+  "contact": {
+    "email": "",
+    "whatsapp": "",
+    "phoneDisplay": "",
+    "responseTime": ""
+  },
+
+  "socials": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": ""
+  },
+
+  "forms": {
+    "mode": "off",
+    "endpoint": "",
+    "_modeHelp": "off = no network request; the form offers WhatsApp/email instead. test = sends to the Apps Script endpoint, rows go to the 'Test' tab and a banner warns visitors. live = real submissions. See docs/GOOGLE_SHEETS_SETUP.md."
+  },
+
+  "operator": {
+    "verified": false,
+    "registrationAuthority": "",
+    "registrationNumber": "",
+    "insurance": "",
+    "_help": "Only fill these in with details you can prove. Nothing here is shown on the site while verified is false."
+  },
+
+  "seo": {
+    "defaultTitle": "Student group trips from Lahore to Northern Pakistan",
+    "defaultDescription": "Affordable, carefully planned group trips for university students in Lahore, starting with a proposed weekend in Nathiagali and Ayubia.",
+    "ogImage": "assets/img/art/og-default.jpg",
+    "twitterHandle": ""
+  },
+
+  "analytics": {
+    "enabled": false,
+    "provider": "",
+    "plausibleDomain": "",
+    "ga4MeasurementId": "",
+    "_help": "Disabled by default. If you enable analytics, update the privacy policy first."
+  },
+
+  "home": {
+    "heroImage": "",
+    "_heroHelp": "Leave empty to use the illustrated, parallax hero. Set to an image key from content/images.json (a real photo) to use a photograph instead."
+  },
+
+  "policies": {
+    "lastUpdated": "2026-10-26",
+    "legalReviewed": false
+  },
+
+  "footer": {
+    "columns": [
+      {
+        "heading": "Travel",
+        "links": [
+          { "label": "Trips", "href": "trips.html" },
+          { "label": "Destinations", "href": "destinations.html" },
+          { "label": "Register interest", "href": "booking.html" },
+          { "label": "Travel journal", "href": "articles.html" }
+        ]
+      },
+      {
+        "heading": "About",
+        "links": [
+          { "label": "Why we exist", "href": "about-us.html" },
+          { "label": "How we plan", "href": "our-approach.html" },
+          { "label": "Gallery", "href": "gallery.html" },
+          { "label": "Traveller stories", "href": "testimonials.html" }
+        ]
+      },
+      {
+        "heading": "Help",
+        "links": [
+          { "label": "Questions", "href": "faq.html" },
+          { "label": "Contact", "href": "contact.html" },
+          { "label": "Safety", "href": "safety.html" },
+          { "label": "Cancellation and refunds", "href": "cancellation-policy.html" },
+          { "label": "Terms", "href": "terms.html" },
+          { "label": "Privacy", "href": "privacy-policy.html" }
+        ]
+      }
+    ]
+  }
+}

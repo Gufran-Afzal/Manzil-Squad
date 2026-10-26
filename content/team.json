@@ -1,0 +1,19 @@
+{
+  "_readme": "Replace each placeholder with real details the person has approved. Set placeholder to false once a member is real. Photos: put a square image (at least 600×600) in assets/img/team/ and set photo to its path. Do not invent qualifications.",
+  "members": [
+    {
+      "placeholder": true,
+      "name": "[Founder name]",
+      "role": "Co-founder, trip planning",
+      "bio": "[One or two sentences, written or approved by this person: what they study or do, and what they look after on trips.]",
+      "photo": ""
+    },
+    {
+      "placeholder": true,
+      "name": "[Founder name]",
+      "role": "Co-founder, participant care",
+      "bio": "[One or two sentences, written or approved by this person.]",
+      "photo": ""
+    }
+  ]
+}

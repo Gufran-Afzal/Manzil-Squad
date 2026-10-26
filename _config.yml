@@ -1,0 +1,18 @@
+# Only used if GitHub Pages ever runs Jekyll on this repository, which it
+# shouldn't: the site is built by .github/workflows/deploy.yml and the
+# published folder (dist/) contains a .nojekyll file. Kept, as in the
+# Portfolio project, so source files are never published by mistake.
+exclude:
+  - content
+  - partials
+  - pages
+  - scripts
+  - integrations
+  - tests
+  - docs
+  - build.mjs
+  - package.json
+  - package-lock.json
+  - README.md
+  - SEO_GUIDE.md
+  - node_modules

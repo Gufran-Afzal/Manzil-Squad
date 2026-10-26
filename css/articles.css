@@ -1,0 +1,39 @@
+/* ==================================================================
+   articles.css — travel journal listing and article pages
+   Journal text is set in Newsreader for comfortable long reading.
+   ================================================================== */
+.featured-post { padding-bottom: var(--s-7); margin-bottom: var(--s-7); border-bottom: 1px solid var(--c-line); }
+
+.read-progress { position: fixed; z-index: 101; top: 0; left: 0; right: 0; height: 3px; background: var(--c-accent); transform-origin: left; transform: scaleX(0); }
+
+.article-head { padding: clamp(2rem, 1rem + 3vw, 4rem) 0 0; }
+.article-head__cat { font-size: var(--fs-sm); font-weight: 650; color: var(--c-accent-ink); }
+.article-head__title { margin-top: var(--s-3); font-size: var(--fs-2xl); line-height: 0.98; font-weight: 800; font-stretch: 70%; letter-spacing: -0.015em; max-width: 20ch; }
+.article-head__lede { margin-top: var(--s-5); font-family: var(--f-serif); font-size: var(--fs-lg); line-height: 1.4; color: var(--c-text-muted); max-width: 46ch; }
+.article-head__meta { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); margin-top: var(--s-5); font-size: var(--fs-sm); color: var(--c-text-muted); }
+.article-head__media { margin-top: var(--s-7); max-width: 1440px; margin-inline: auto; aspect-ratio: 21 / 9; overflow: hidden; }
+.article-head__media img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 700px) { .article-head__media { aspect-ratio: 4 / 3; } }
+
+.article-layout { display: grid; gap: var(--s-6); padding-block: var(--s-7) var(--s-8); }
+.article-body { min-width: 0; max-width: 720px; }
+@media (min-width: 1100px) {
+  .article-layout { grid-template-columns: 240px minmax(0, 720px); column-gap: var(--s-9); justify-content: center; align-items: start; }
+  .article-layout > .toc { position: sticky; top: calc(var(--header-h) + var(--s-5)); max-height: calc(100vh - var(--header-h) - 40px); overflow: auto; }
+}
+
+.prose--article { font-family: var(--f-serif); font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem); line-height: var(--lh-serif); max-width: 68ch; }
+.prose--article h2 { font-family: var(--f-sans); margin-top: var(--s-8); }
+.prose--article h3, .prose--article h4 { font-family: var(--f-sans); }
+.prose--article .checklist, .prose--article .table-wrap, .prose--article .callout { font-family: var(--f-sans); font-size: var(--fs-base); }
+.prose--article ul.checklist { padding: var(--s-4) var(--s-5); background: var(--c-paper); border: 1px solid var(--c-line); border-radius: var(--r-sm); }
+
+.article-body .tags { margin-top: var(--s-7); }
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); margin-top: var(--s-5); padding-top: var(--s-5); border-top: 1px solid var(--c-line); }
+.share__label { font-size: var(--fs-sm); font-weight: 700; margin-right: var(--s-2); }
+.share__link { display: inline-flex; align-items: center; min-height: 44px; padding: 0.4rem 0.9rem; font-size: var(--fs-sm); font-weight: 600; text-decoration: none; border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); }
+.share__link:hover { border-color: var(--c-pine); }
+.article-links { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
+.article-links__item { display: grid; padding: var(--s-4) var(--s-5); text-decoration: none; font-weight: 700; background: var(--c-deodar); color: var(--c-limestone); border-radius: var(--r-sm); transition: background-color var(--dur-1); }
+.article-links__item:hover { background: var(--c-deodar-2); }
+.article-links__item span { font-size: var(--fs-xs); font-weight: 600; color: var(--c-accent); }

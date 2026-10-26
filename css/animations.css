@@ -1,0 +1,88 @@
+/* ==================================================================
+   animations.css — the motion system
+
+   Rules this file follows:
+   - Content is only hidden when the `js` class is on <html> (added
+     before paint by partials/head.html). Without JavaScript, nothing
+     is ever hidden.
+   - A fail-safe animation reveals any element JavaScript forgot about
+     after 2.5 s, so a script error can never leave content invisible.
+   - Only transform and opacity are animated (no layout shifts).
+   - prefers-reduced-motion turns every movement off at the bottom of
+     this file.
+   ================================================================== */
+
+/* ---------- reveal: [data-animate="rise"] with --d (stagger index) ---------- */
+.js [data-animate] {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 760ms var(--ease-out), transform 900ms var(--ease-out);
+  transition-delay: calc(var(--d, 0) * 90ms);
+  animation: reveal-failsafe 0s linear 2.5s forwards;
+}
+.js [data-animate].is-visible { opacity: 1; transform: none; animation: none; }
+@keyframes reveal-failsafe { to { opacity: 1; transform: none; } }
+
+/* ---------- page load: hero and page heroes animate as one sequence ---------- */
+.js .hero [data-animate], .js .page-hero [data-animate], .js .trip-hero [data-animate], .js .article-head [data-animate] {
+  animation: rise-in 900ms var(--ease-out) both;
+  animation-delay: calc(120ms + var(--d, 0) * 110ms);
+  transition: none;
+}
+@keyframes rise-in { from { opacity: 0; transform: translate3d(0, 26px, 0); } to { opacity: 1; transform: none; } }
+
+/* the hero's climbing line draws between the two elevations */
+.js .hero__to-line { transform-origin: left center; animation: line-draw 1100ms var(--ease-in-out) 520ms both; }
+@keyframes line-draw { from { transform: rotate(-8deg) translateY(4px) scaleX(0); } }
+
+/* hero artwork: slow settle on load (layers move independently on scroll in animations.js) */
+.js .hero__art svg { animation: art-settle 2200ms var(--ease-out) both; }
+@keyframes art-settle { from { transform: scale(1.08); opacity: 0.6; } }
+.hero-art__layer { will-change: transform; }
+
+/* ---------- route: the elevation line draws when it scrolls into view ---------- */
+.js .route__line { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 2200ms var(--ease-in-out); }
+.js .route__area { opacity: 0; transition: opacity 1200ms var(--ease-out) 900ms; }
+.js .route__stop { opacity: 0; transform: translateY(6px); transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); transition-delay: calc(400ms + var(--i) * 380ms); }
+.js .route.is-drawn .route__line { stroke-dashoffset: 0; }
+.js .route.is-drawn .route__area { opacity: 1; }
+.js .route.is-drawn .route__stop { opacity: 1; transform: none; }
+
+/* ---------- itinerary: stops light up as the progress line passes ---------- */
+.js .itinerary__stop::before { transition: background-color var(--dur-2), border-color var(--dur-2), transform var(--dur-2) var(--ease-out); }
+.js .itinerary__stop.is-active::before { background: var(--c-accent); border-color: var(--c-accent); transform: scale(1.15); }
+
+/* ---------- mobile menu ---------- */
+.mobile-menu { opacity: 0; transition: opacity var(--dur-2) var(--ease-out); }
+.mobile-menu.is-open { opacity: 1; }
+.mobile-menu__list li { opacity: 0; transform: translateY(24px); transition: opacity 500ms var(--ease-out), transform 600ms var(--ease-out); transition-delay: calc(80ms + var(--i) * 45ms); }
+.mobile-menu.is-open .mobile-menu__list li { opacity: 1; transform: none; }
+.mobile-menu__ridge { transform: translateY(40px); transition: transform 900ms var(--ease-out) 150ms; }
+.mobile-menu.is-open .mobile-menu__ridge { transform: none; }
+
+/* ---------- page transitions (cross-document view transitions; ignored by browsers without support) ---------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-out 220ms var(--ease-in-out) both; }
+::view-transition-new(root) { animation: vt-in 380ms var(--ease-out) both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- form states ---------- */
+.btn__spinner { display: none; width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 700ms linear infinite; }
+.is-loading .btn__spinner { display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.form__status:not([hidden]) { animation: status-in var(--dur-2) var(--ease-out); }
+@keyframes status-in { from { opacity: 0; transform: translateY(-6px); } }
+.field__input.is-invalid { animation: nudge 280ms var(--ease-out); }
+@keyframes nudge { 30% { transform: translateX(-4px); } 60% { transform: translateX(3px); } }
+
+/* ---------- reduced motion: no movement anywhere ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
+  .js [data-animate] { opacity: 1; transform: none; }
+  .js .route__line { stroke-dashoffset: 0; }
+  .js .route__area, .js .route__stop { opacity: 1; transform: none; }
+  .hero-art__layer { transform: none !important; }
+  .btn__spinner { animation: none !important; border-right-color: currentColor; opacity: 0.6; }
+  @view-transition { navigation: none; }
+}
