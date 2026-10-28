@@ -11,7 +11,7 @@
 import { esc, fmtDate, fmtMoney, slugify, jsonLd, isPlaceholder } from './util.mjs';
 import { elevationProfile } from './artwork.mjs';
 import { AVAILABILITY } from './content.mjs';
-import { buildLink, buildMessage } from '../../js/whatsapp.js';
+import { buildLink, buildMessage } from '../../src/js/whatsapp.js';
 
 export const icon = {
   arrow: '<svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',

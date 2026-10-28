@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Unit tests for js/whatsapp.js. Run: node scripts/test-whatsapp.mjs */
 import assert from 'node:assert/strict';
-import { normalizeNumber, buildMessage, buildLink } from '../js/whatsapp.js';
+import { normalizeNumber, buildMessage, buildLink } from '../src/js/whatsapp.js';
 
 let passed = 0;
 const t = (name, fn) => { fn(); passed++; console.log(`  ✓ ${name}`); };
