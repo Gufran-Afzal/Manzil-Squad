@@ -27,7 +27,7 @@ The site is built by GitHub Actions (`.github/workflows/deploy.yml`) every time 
 | Node.js | Version 22 (the site needs 20 or newer) |
 | Dependencies | None to install: the website has no runtime dependencies |
 | Tests | WhatsApp link tests and Apps Script logic tests |
-| Build | `node build.mjs`: validates content, builds `dist/`, checks every internal link and asset. Any problem fails the run and nothing is published |
+| Build | `node scripts/build.mjs`: validates content, builds `dist/`, checks every internal link and asset. Any problem fails the run and nothing is published |
 | Site URL | If `siteUrl` in `content/site.json` is empty, GitHub's Pages URL is used, so canonical tags and `sitemap.xml` are always correct |
 | Publish | Uploads `dist/` and deploys it |
 

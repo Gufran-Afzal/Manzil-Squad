@@ -41,7 +41,7 @@ jobs:
       # configure-pages provides the right URL for a project site
       # (https://<user>.github.io/<repo>) or a custom domain.
       - name: Build (validates content and checks every internal link)
-        run: node build.mjs
+        run: node scripts/build.mjs
         env:
           SITE_URL: ${{ steps.pages.outputs.base_url }}
 
