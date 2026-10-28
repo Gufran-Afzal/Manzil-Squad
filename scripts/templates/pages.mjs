@@ -7,7 +7,7 @@ import { esc, slugify, fmtDate, jsonLd, isPlaceholder } from '../lib/util.mjs';
 import { markdown } from '../lib/markdown.mjs';
 import { icon } from '../lib/components.mjs';
 import { AVAILABILITY, ARTICLE_CATEGORIES } from '../lib/content.mjs';
-import { heroSvg, ridgeStrip, climbChart } from './art.mjs';
+import { ridgeStrip, climbChart } from './art.mjs';
 import { split, arrow, ctaBand, pageHero } from './layout.mjs';
 
 export function buildPages({ C, K, L, out, BRAND, SITE_URL, BASE_PATH }) {
@@ -71,6 +71,9 @@ export function buildPages({ C, K, L, out, BRAND, SITE_URL, BASE_PATH }) {
   /* ================================================================ */
   {
     const t = featured;
+    const heroPhoto = site.home?.heroImage || '';
+    // the climb only counts stops that keep rising (Ayubia sits just below Nathiagali)
+    const asc = t.route.filter((x, i, a) => a.slice(0, i).every((y) => y.elevation < x.elevation));
     const stopsJson = esc(JSON.stringify(t.route.map((s) => [s.name, s.elevation])));
     const marq = destinations.map((d) => {
       const m = d.elevation.match(/([\d,]{3,6})\s*m/);
@@ -98,17 +101,25 @@ export function buildPages({ C, K, L, out, BRAND, SITE_URL, BASE_PATH }) {
     const [feat, ...rest] = articles;
 
     const main = `<main id="main">
-<section class="hero" data-hero data-stops="${stopsJson}" aria-labelledby="hero-h">
-  <div class="hero__stars" aria-hidden="true"></div><div class="hero__glow" aria-hidden="true"></div>
-  ${heroSvg()}
+<section class="hero${heroPhoto ? ' hero--photo' : ''}" data-hero data-stops="${stopsJson}" aria-labelledby="hero-h">
+  ${heroPhoto ? `<div class="hero__photo">${K.picture(heroPhoto, { root: './', sizes: '100vw', eager: true, alt: '' })}</div>` : ''}
+  <div class="hx" data-fx aria-hidden="true">
+    <i class="hx__b hx__b1"></i><i class="hx__b hx__b2"></i><i class="hx__b hx__b3"></i><i class="hx__b hx__b4"></i>
+    <i class="hx__g"></i><i class="hx__ring hx__ring1"></i><i class="hx__ring hx__ring2"></i><i class="hx__ring hx__ring3"></i>
+    <span class="hx__dots">${Array.from({ length: 14 }, (_, i) => `<i style="--n:${i}"></i>`).join('')}</span>
+    <span class="hx__word" data-fx-word>${esc(asc[asc.length - 1].name.toUpperCase())}</span>
+  </div>
   <div class="hero__shade" aria-hidden="true"></div>
   <div class="wrap hero__copy">
     <a class="pill" href="./trips/${t.slug}.html"><span class="pill__dot" aria-hidden="true"></span>First trip · ${esc(AVAILABILITY[t.availability].label.toLowerCase())}</a>
-    <h1 class="hero__h1" id="hero-h"><span class="ln"><span style="--i:0">Lahore</span></span><span class="ln"><span style="--i:1">to the hills</span></span><span class="ln"><span style="--i:2">in one weekend</span></span></h1>
+    <h1 class="hero__h1" id="hero-h" aria-label="Lahore to the hills in one weekend">${['Lahore', 'to the hills', 'in one weekend'].map((ln, li) => `<span class="ln" aria-hidden="true">${ln.split(' ').map((w, wi, arr) => `<span class="wd">${[...w].map((c, ci) => `<span class="ch" style="--c:${li * 6 + wi * 3 + ci}">${c}</span>`).join('')}</span>${wi < arr.length - 1 ? ' ' : ''}`).join('')}</span>`).join('')}</h1>
     <p class="hero__lede"><span class="short">Small, carefully planned group trips for university students in Lahore.</span><span class="full">Small, carefully planned group trips to the northern hills for university students in Lahore. Our first trip, to Nathiagali and Ayubia, is being planned now.</span></p>
     <div class="hero__cta"><a class="btn btn--accent" href="./trips.html">Explore trips ${arrow}</a><a class="btn btn--ghost" href="./booking.html">Register interest</a></div>
   </div>
-  <div class="hero__alt" aria-hidden="true"><span class="hero__alt-n" data-alt>${t.route[0].elevation}</span><span class="hero__alt-u">m</span><span class="hero__alt-l" data-alt-label>${esc(t.route[0].name)}</span></div>
+  <div class="hero__rail" aria-hidden="true" data-rail>
+    <div class="rail__top"><span class="hero__alt-n" data-alt>${t.route[0].elevation}</span><span class="hero__alt-u">m</span><span class="hero__alt-l" data-alt-label>${esc(t.route[0].name)}</span></div>
+    <div class="rail__track"><i class="rail__fill"></i>${(() => { const lo = asc[0].elevation, hi = asc[asc.length - 1].elevation; return asc.map((x) => `<span class="rail__stop" style="--x:${(((x.elevation - lo) / (hi - lo || 1)) * 100).toFixed(1)}%" data-e="${x.elevation}"><i></i><b>${esc(x.name)}</b></span>`).join(''); })()}</div>
+  </div>
   <a class="hero__cue" href="#first-trip" aria-label="Scroll to the first trip"></a>
 </section>
 
@@ -222,7 +233,7 @@ ${ctaBand(K, './')}
       eventStatus: t.availability === 'cancelled' ? 'https://schema.org/EventCancelled' : 'https://schema.org/EventScheduled',
       location: { '@type': 'Place', name: names.join(', '), address: { '@type': 'PostalAddress', addressRegion: destinations.find((d) => d.id === t.destinationIds[0]).province, addressCountry: 'PK' } },
       organizer: { '@type': 'Organization', name: BRAND, url: SITE_URL + '/' },
-      image: `${SITE_URL}/${images[t.heroImage].src}-${images[t.heroImage].widths.slice(-1)[0]}.webp`,
+      image: `${SITE_URL}/${K.imageFile(t.heroImage)}`,
       offers: { '@type': 'Offer', price: t.price.amount, priceCurrency: 'PKR', availability: t.availability === 'full' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock', url: `${SITE_URL}/${file}` },
     }) : '';
     const toc = [['overview', 'Overview'], ['route', 'The route'], ['itinerary', 'Day by day'], ['included', "What's included"], ['logistics', 'Transport and stay'], ['packing', 'What to bring'], ['safety', 'Safety'], ['terms', 'Booking terms'], ['questions', 'Questions'], ...(st.bookable ? [['register', 'Register']] : [])];
@@ -361,7 +372,7 @@ ${ctaBand(K, './')}
       '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.description,
       datePublished: a.date, dateModified: a.updated || a.date, inLanguage: site.locale,
       author: { '@type': 'Organization', name: brandBy(a) },
-      ...(a.image && SITE_URL ? { image: `${SITE_URL}/${images[a.image].src}-${images[a.image].widths.slice(-1)[0]}.webp` } : {}),
+      ...(a.image && SITE_URL ? { image: `${SITE_URL}/${K.imageFile(a.image)}` } : {}),
       ...(url ? { mainEntityOfPage: url } : {}),
       ...(!isPlaceholder(BRAND) ? { publisher: { '@type': 'Organization', name: BRAND } } : {}),
     });
@@ -442,9 +453,9 @@ ${pageHero({ title: "Trips we'd want to go on ourselves", lede: "We're a small t
     <div><dt>Respect for the places we visit</dt><dd>The Galiyat forests are protected areas and people's homes. We leave no litter, keep noise down and follow park rules.</dd></div>
     <div><dt>Being reachable</dt><dd>A real person answers messages, before, during and after a trip.</dd></div>
   </dl></div></section>
-<section class="sec sec--alt" id="credits" aria-labelledby="credits-h"><div class="wrap"><header class="sh"><h2 class="h2" id="credits-h">Image credits</h2><p class="sh__p">Where every image on this site comes from, and under what licence. Fonts: Archivo, under the SIL Open Font License 1.1.</p></header>
+<section class="sec sec--alt" id="credits" aria-labelledby="credits-h"><div class="wrap"><header class="sh"><h2 class="h2" id="credits-h">Image credits</h2><p class="sh__p">Where every photograph or designed image on this site comes from, and under what licence. The animated tiles and hero are made with CSS and contain no photographs or illustrations. Fonts: Archivo, under the SIL Open Font License 1.1.</p></header>
   <div class="table-wrap" tabindex="0" role="region" aria-label="Image credits"><table class="credits"><thead><tr><th scope="col">Image</th><th scope="col">Type</th><th scope="col">Source and licence</th></tr></thead><tbody>
-  ${Object.values(images).map((im) => `<tr><th scope="row">${esc(im.alt)}</th><td>${im.kind === 'photo' ? 'Photograph' : 'Illustration (placeholder)'}</td><td>${esc(im.source)}. ${esc(im.licence)}.${im.attribution ? ` ${esc(im.attribution)}` : ''}</td></tr>`).join('\n')}
+  ${Object.values(images).filter((im) => im.kind !== 'motion').map((im) => `<tr><th scope="row">${esc(im.alt)}</th><td>${im.kind === 'photo' ? 'Photograph' : 'Designed graphic'}</td><td>${esc(im.source)}. ${esc(im.licence)}.${im.attribution ? ` ${esc(im.attribution)}` : ''}</td></tr>`).join('\n')}
   </tbody></table></div></div></section>
 ${ctaBand(K, './')}
 </main>`,

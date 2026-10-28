@@ -9,7 +9,7 @@
    now because the travel site has many more of them.)
    ================================================================== */
 import { esc, fmtDate, fmtMoney, slugify, jsonLd, isPlaceholder } from './util.mjs';
-import { elevationProfile } from './artwork.mjs';
+import { elevationProfile } from './elevation.mjs';
 import { AVAILABILITY } from './content.mjs';
 import { buildLink, buildMessage } from '../../src/js/whatsapp.js';
 
@@ -43,10 +43,22 @@ export function makeComponents(ctx) {
   function picture(key, { root, sizes = '100vw', eager = false, cls = '', alt } = {}) {
     const im = images[key];
     if (!im) throw new Error(`Unknown image key "${key}"`);
+    if (im.kind === 'motion') {
+      // An animated CSS motion-graphic tile (no file to download, no illustration). Decorative: every
+      // card/page that uses it already has the real text next to it.
+      return `<span class="mt ${esc(cls)}" style="--h:${Number(im.hue) || 160};--ar:${im.width}/${im.height}" data-mt aria-hidden="true"><i class="mt__b mt__b1"></i><i class="mt__b mt__b2"></i><i class="mt__b mt__b3"></i><i class="mt__g"></i><b class="mt__w">${esc(im.label)}</b></span>`;
+    }
+    const a = alt !== undefined ? alt : im.alt;
+    if (im.jpegFallback) return `<img class="${esc(cls)}" src="${root}${im.src}.jpg" width="${im.width}" height="${im.height}" alt="${esc(a)}" ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
     const srcset = im.widths.map((w) => `${root}${im.src}-${w}.webp ${w}w`).join(', ');
     const fallback = `${root}${im.src}-${im.widths[Math.min(1, im.widths.length - 1)]}.webp`;
-    const a = alt !== undefined ? alt : im.alt;
-    return `<img class="${esc(cls)}" src="${fallback}" srcset="${srcset}" sizes="${esc(sizes)}" width="${im.width}" height="${im.height}" alt="${esc(a)}" ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} decoding="async"${im.kind === 'illustration-placeholder' ? ' data-placeholder-art' : ''}>`;
+    return `<img class="${esc(cls)}" src="${fallback}" srcset="${srcset}" sizes="${esc(sizes)}" width="${im.width}" height="${im.height}" alt="${esc(a)}" ${eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+  }
+  /** Site-relative file for social cards / schema.org: photos use their largest size, motion tiles use the social card. */
+  function imageFile(key) {
+    const im = images[key] && images[key].kind !== 'motion' ? images[key] : images['og-default'];
+    if (!im) return '';
+    return im.jpegFallback ? `${im.src}.jpg` : `${im.src}-${im.widths[im.widths.length - 1]}.webp`;
   }
 
   /* ---------- trip facts ---------- */
@@ -293,5 +305,5 @@ export function makeComponents(ctx) {
 </section>`;
   }
 
-  return { picture, priceText, dateText, durationText, statusBadge, destNames, andList, tripCard, destinationCard, articleCard, faqItem, breadcrumbs, routeProfile, itinerary, bookingForm, notice, ctaBand, waButton, waHref, whatsappReady, isPlaceholderBrand: isPlaceholder(brand) };
+  return { picture, imageFile, priceText, dateText, durationText, statusBadge, destNames, andList, tripCard, destinationCard, articleCard, faqItem, breadcrumbs, routeProfile, itinerary, bookingForm, notice, ctaBand, waButton, waHref, whatsappReady, isPlaceholderBrand: isPlaceholder(brand) };
 }

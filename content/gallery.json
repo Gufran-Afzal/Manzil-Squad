@@ -1,5 +1,5 @@
 {
-  "_readme": "Gallery items reference image keys in content/images.json. While every image is a placeholder illustration, the gallery page shows a clear notice saying so. Only add photos of people with their permission.",
+  "_readme": "Gallery items reference image keys in content/images.json. Only add photos of people with their permission.",
   "items": [
     { "image": "galiyat-morning", "caption": "Forested ridges in morning light", "category": "Galiyat" },
     { "image": "ayubia-trail", "caption": "Forest in Ayubia", "category": "Galiyat" },

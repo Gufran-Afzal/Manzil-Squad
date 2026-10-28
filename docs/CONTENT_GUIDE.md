@@ -113,7 +113,7 @@ Every image used anywhere is listed here once, with its alt text, source and lic
 4. Point the trip, destination, article or gallery item at the new key (or give the photo the old key and delete the old entry).
 5. Build. The build stops if a photo is missing a source or licence, or still has `TODO` in it.
 
-To use a photo in the homepage hero instead of the illustrated ridges, set `home.heroImage` in `site.json` to its key.
+To put a real photo behind the animated homepage hero, set `home.heroImage` in `site.json` to its key.
 
 See docs/IMAGE_SOURCES.md for where to find licensed photos.
 

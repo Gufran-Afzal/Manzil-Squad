@@ -1,18 +1,12 @@
-# Only used if GitHub Pages ever runs Jekyll on this repository, which it
-# shouldn't: the site is built by .github/workflows/deploy.yml and the
-# published folder (dist/) contains a .nojekyll file. Kept, as in the
-# Portfolio project, so source files are never published by mistake.
+# Only used if GitHub Pages ever runs Jekyll (it shouldn't: see .nojekyll).
+# Keeps source/template files out of any Jekyll build.
 exclude:
   - content
-  - partials
-  - pages
   - scripts
+  - src
   - integrations
-  - tests
   - docs
-  - build.mjs
   - package.json
   - package-lock.json
   - README.md
-  - SEO_GUIDE.md
   - node_modules

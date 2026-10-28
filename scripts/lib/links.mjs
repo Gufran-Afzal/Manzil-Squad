@@ -1,6 +1,6 @@
 /* ==================================================================
    links.mjs — checks every internal link, image, script and stylesheet
-   in the built site (dist/) actually exists, including #fragments.
+   in the built site (repo root) actually exists, including #fragments.
 
    Also flags root-relative links ("/trips.html"). Those break on a
    GitHub Pages project site (https://user.github.io/repo/), so only
@@ -20,10 +20,10 @@ function walk(dir, list = []) {
 const ATTR = /\s(href|src|srcset|action|data-copy-link)="([^"]*)"/g;
 const ID = /\sid="([^"]+)"/g;
 
-export function checkLinks(DIST, { basePath = '/' } = {}) {
+export function checkLinks(DIST, { basePath = '/', files = null } = {}) {
   const problems = [];
-  const files = walk(DIST);
-  const html = files.filter((f) => f.endsWith('.html'));
+  // The site is built into the repo root, so only the generated pages are scanned (never node_modules, docs/ ...).
+  const html = (files || walk(DIST)).filter((f) => f.endsWith('.html'));
   const ids = new Map();
   const src = new Map();
   for (const f of html) {

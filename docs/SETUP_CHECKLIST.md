@@ -36,7 +36,7 @@ Nothing below should be filled in with a guess. If you don't have the real value
 | # | Where | What |
 |---|---|---|
 | 18 | `content/site.json` → `operator` | Registration authority and number (and insurance, if any). Set `verified: true` only when you can show the certificate. Until then nothing is claimed |
-| 19 | `content/images.json` | Replace placeholder illustrations with licensed photos (docs/IMAGE_SOURCES.md) |
+| 19 | `content/images.json` | Optional: swap animated tiles for licensed photos (docs/IMAGE_SOURCES.md) |
 | 20 | `content/images.json` → `og-default` | A 1200×630 social-sharing image with your logo |
 | 21 | `assets/icons/favicon.svg`, the mark in `scripts/lib/components.mjs` (`icon.mark`) | Your logo, once designed. The current ridge mark is a neutral placeholder |
 | 22 | `content/testimonials.json` | Real participant quotes with written consent, after a completed trip |

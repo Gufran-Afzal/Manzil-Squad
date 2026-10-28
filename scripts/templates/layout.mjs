@@ -27,7 +27,7 @@ export function makeLayout({ site, images, BRAND, SITE_URL, BASE_PATH, DEV, todo
     const full = title === BRAND || !brandOk ? title : `${title} | ${BRAND}`;
     const url = SITE_URL && !noindex ? `${SITE_URL}/${file === 'index.html' ? '' : file}` : '';
     const im = images[image || 'og-default'];
-    const ogImg = SITE_URL && im ? `${SITE_URL}/${im.jpegFallback ? im.src + '.jpg' : `${im.src}-${im.widths[im.widths.length - 1]}.webp`}` : '';
+    const ogImg = SITE_URL && im ? `${SITE_URL}/${K.imageFile(image || 'og-default')}` : '';
     return [
       `<title>${esc(full)}</title>`,
       `<meta name="description" content="${esc(description)}">`,
@@ -148,6 +148,7 @@ export const ctaBand = (K, root) => `<section class="cta" data-cta aria-labelled
 
 /** Inner-page hero. */
 export const pageHero = ({ title, lede = '', crumbs = '', extra = '', cls = '' }) => `<header class="ph ${cls}">
+  <div class="hx hx--sm" aria-hidden="true"><i class="hx__b hx__b1"></i><i class="hx__b hx__b2"></i><i class="hx__g"></i></div>
   <div class="wrap ph__in">
     ${crumbs}
     <h1>${title}</h1>

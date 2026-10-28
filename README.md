@@ -1,15 +1,16 @@
 # Manzil-Squad v2 — motion-graphics travel site
 
-Static site, zero runtime dependencies. Builds to `dist/` and deploys to GitHub Pages (`.github/workflows/deploy.yml`).
+Static site, zero runtime dependencies. Same workflow as the Portfolio site: **build locally, commit the generated pages, push; GitHub Pages serves the branch** (Settings → Pages → Deploy from a branch → `main` → `/ (root)`). No GitHub Actions.
 
 ```
-npm run build      # content -> dist/
+npm run build      # content -> generated pages in the repo root (commit them)
 npm run dev        # dev build + local preview
 npm test           # unit tests + build + internal link check
 npm run validate   # content checks / launch checklist
 ```
 
 ## Structure
+- `docs/` — setup and content guides (not part of the site).
 - `content/` — all copy and data (JSON + markdown). Edit here, never in HTML.
 - `scripts/build.mjs` — orchestrator. `scripts/templates/` — `layout.mjs` (shell), `pages.mjs` (every page), `art.mjs` (hero SVG, elevation chart). `scripts/lib/` — content loading, markdown, components, link checker, sitemap.
 - `src/css/` — 3 files, concatenated + minified into one `site.css`.

@@ -44,14 +44,19 @@ export function loadContent(ROOT) {
   /* ---------- images ---------- */
   for (const [key, im] of Object.entries(images)) {
     const w = `content/images.json → ${key}`;
-    for (const f of ['src', 'alt', 'kind', 'source', 'licence']) if (!im[f]) err(w, `missing "${f}"`);
-    if (!Array.isArray(im.widths) || !im.widths.length) err(w, 'missing "widths"');
-    if (!im.width || !im.height) err(w, 'missing intrinsic "width"/"height" (needed to prevent layout shift)');
-    if (!['photo', 'illustration-placeholder', 'illustration'].includes(im.kind)) err(w, `unknown kind "${im.kind}"`);
-    if (im.kind === 'photo' && /TODO|unknown/i.test(`${im.source} ${im.licence}`)) err(w, 'photo is missing a real source/licence');
+    if (!['photo', 'motion', 'graphic'].includes(im.kind)) { err(w, `unknown kind "${im.kind}" (use photo, motion or graphic)`); continue; }
+    for (const f of ['alt', 'kind', 'source', 'licence']) if (!im[f]) err(w, `missing "${f}"`);
+    if (!im.width || !im.height) err(w, 'missing intrinsic "width"/"height" (sets the tile/photo shape, prevents layout shift)');
+    if (im.kind === 'motion') { if (!im.label) err(w, 'motion tiles need a "label" (the big word) and a "hue" 0-360'); continue; }
+    if (!im.src) err(w, 'missing "src"');
+    if (im.kind === 'photo') {
+      if (!Array.isArray(im.widths) || !im.widths.length) err(w, 'missing "widths"');
+      if (/TODO|unknown/i.test(`${im.source} ${im.licence}`)) err(w, 'photo is missing a real source/licence');
+    }
     if (/TODO/.test(`${im.alt} ${im.attribution || ''}`)) err(w, 'replace the TODO in the alt text / attribution');
-    (im.widths || []).forEach((px) => {
-      if (!fs.existsSync(path.join(ROOT, `${im.src}-${px}.webp`))) err(w, `file not found: ${im.src}-${px}.webp (run "npm run images:art" or add the file)`);
+    if (im.jpegFallback) { if (!fs.existsSync(path.join(ROOT, `${im.src}.jpg`))) err(w, `file not found: ${im.src}.jpg`); }
+    else (im.widths || []).forEach((px) => {
+      if (!fs.existsSync(path.join(ROOT, `${im.src}-${px}.webp`))) err(w, `file not found: ${im.src}-${px}.webp`);
     });
   }
   const imageRef = (where, key) => { if (key && !images[key]) err(where, `image "${key}" is not in content/images.json`); };
@@ -212,8 +217,8 @@ export function placeholderReport(c, siteUrl) {
   if (!c.site.policies.legalReviewed) t.push('content/pages/*.md: policy drafts need local legal review before accepting payments (then set policies.legalReviewed to true)');
   if (!c.site.operator.verified) t.push('content/site.json → operator: registration/licence details not provided (nothing is claimed on the site)');
   c.team.members.filter((m) => m.placeholder).forEach((m, i) => t.push(`content/team.json → member ${i + 1}: replace placeholder name, bio and photo`));
-  const ph = Object.entries(c.images).filter(([, im]) => im.kind === 'illustration-placeholder').length;
-  if (ph) t.push(`content/images.json: ${ph} images are placeholder illustrations; replace with licensed photos (docs/IMAGE_SOURCES.md)`);
+  const ph = Object.values(c.images).filter((im) => im.kind === 'motion').length;
+  if (ph) t.push(`content/images.json: ${ph} image slots use animated motion tiles; add licensed photos when you have them (docs/IMAGE_SOURCES.md)`);
   c.trips.forEach((tr) => {
     if (tr.dates.status !== 'confirmed') t.push(`content/trips.json → ${tr.id}: dates not confirmed`);
     if (tr.price.status !== 'confirmed') t.push(`content/trips.json → ${tr.id}: price is an estimate`);

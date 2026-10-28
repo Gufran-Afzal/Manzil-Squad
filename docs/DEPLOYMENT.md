@@ -1,35 +1,22 @@
-# Deploying to GitHub Pages
+# Deploying to GitHub Pages (build locally, deploy from the branch)
 
-The site is built by GitHub Actions (`.github/workflows/deploy.yml`) every time you push to `main`, and published from the build output (`dist/`). GitHub Pages is free for public repositories.
+Same workflow as the Portfolio site. There are no GitHub Actions: you build on your computer, commit the generated pages, push, and GitHub Pages serves the branch as it is.
 
 ## One-time setup
 
-1. **Create a repository** on GitHub, e.g. `student-travel-site`. Public repositories get free Pages hosting.
-2. **Push this project** to its `main` branch:
+1. Create a GitHub repository and push this project to `main` (`git init`, `git add .`, `git commit`, `git remote add origin ...`, `git push -u origin main`).
+2. Set `"siteUrl"` in `content/site.json` to the live address (e.g. `https://<user>.github.io/<repo>` or your custom domain). It fixes canonical tags, `sitemap.xml` and the styled 404 page.
+3. **Settings -> Pages -> Build and deployment**: Source **Deploy from a branch**, Branch **`main`**, Folder **`/ (root)`**. Save.
+4. The site is live about a minute after each push.
 
-   ```bash
-   git init
-   git add .
-   git commit -m "First version of the travel site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/student-travel-site.git
-   git push -u origin main
-   ```
+## Every update
 
-3. In the repository, open **Settings → Pages** and set **Source** to **GitHub Actions**. (Not "Deploy from a branch": that would publish the source files instead of the built site.)
-4. Open the **Actions** tab. The "Build and deploy to GitHub Pages" run should start (if it didn't, click **Run workflow**). It takes about a minute.
-5. When it's green, your site is at `https://<your-username>.github.io/student-travel-site/`. The link also appears in **Settings → Pages**.
+```bash
+npm run build        # regenerates the pages in the repo root + checks every internal link
+git add -A && git commit -m "Update site" && git push
+```
 
-## What the workflow does
-
-| Step | Detail |
-|---|---|
-| Node.js | Version 22 (the site needs 20 or newer) |
-| Dependencies | None to install: the website has no runtime dependencies |
-| Tests | WhatsApp link tests and Apps Script logic tests |
-| Build | `node scripts/build.mjs`: validates content, builds `dist/`, checks every internal link and asset. Any problem fails the run and nothing is published |
-| Site URL | If `siteUrl` in `content/site.json` is empty, GitHub's Pages URL is used, so canonical tags and `sitemap.xml` are always correct |
-| Publish | Uploads `dist/` and deploys it |
+**Always run the build before committing.** The generated files (`index.html`, `trips.html`, `articles/`, `destinations/`, `trips/`, `css/site.css`, `js/`, `sitemap.xml`, `.build-manifest.json`) are committed; the build tracks them in `.build-manifest.json` so a rebuild only replaces its own output and removes pages you deleted. `assets/` (fonts, images) is used in place. Source folders (`content/`, `src/`, `scripts/`, `docs/`) are excluded from Jekyll by `_config.yml`, and `.nojekyll` stops Jekyll running at all.
 
 ## The base path (project sites)
 
@@ -49,7 +36,7 @@ To check locally: `npm run build` then `npm run preview:base` and open http://lo
 4. Set `siteUrl` in `content/site.json` to `https://www.yourbrand.pk` and push.
 5. With a custom domain the site is at the root, so the build also writes `robots.txt` pointing to the sitemap.
 
-GitHub Actions deployments don't need a `CNAME` file in the repository; the setting in **Settings → Pages** is enough.
+For a branch deploy, GitHub (or you) keeps a file named `CNAME` in the repository root containing just your domain (e.g. `www.yourbrand.pk`). The build never touches it.
 
 ## HTTPS
 
@@ -85,9 +72,8 @@ The build writes a small page at the old address that immediately sends visitors
 | Problem | Fix |
 |---|---|
 | Action fails at "Build" | Read the log: it names the file and field. Run `npm run build` locally to see the same message |
-| "Get Pages site failed" in configure-pages | **Settings → Pages → Source** must be **GitHub Actions** |
-| Deploy step says permissions are missing | Don't remove the `permissions:` block in the workflow; check **Settings → Actions → General → Workflow permissions** allows the workflow to run |
-| Site has no styling, or images are missing | You're viewing the source files (Source set to "Deploy from a branch"), or `siteUrl` points to a different address than the one you're visiting |
-| Changes don't appear | Wait a minute, check the Actions run is green, hard-refresh |
+| Pages says "no index.html" or shows the README | **Folder** must be `/ (root)`, and the built pages must be committed (run `npm run build`) |
+| Site has no styling, or images are missing | Pages is serving the repository root instead of the root, or `siteUrl` points to a different address than the one you're visiting |
+| Changes don't appear | Wait a minute, check you committed and pushed the rebuilt pages, hard-refresh |
 | Custom domain shows a certificate warning | Wait for the certificate (up to a day), then enable **Enforce HTTPS** |
 | 404 page appears unstyled | `siteUrl` doesn't match the real address (its path is used as the base path) |

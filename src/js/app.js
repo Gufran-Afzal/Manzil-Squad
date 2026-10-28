@@ -51,7 +51,7 @@
     var oio = new IntersectionObserver(function (es) {
       es.forEach(function (e) { e.target.classList.toggle('on', e.isIntersecting); });
     }, { rootMargin: '80px' });
-    $$('.hero,.marq,.cta,.rail__hint,.ph--img').forEach(function (el) { oio.observe(el); });
+    $$('.hero,.marq,.cta,.rail__hint,.ph--img,.ph,[data-mt]').forEach(function (el) { oio.observe(el); });
   } else {
     root.classList.add('fb');
   }
@@ -100,20 +100,20 @@
   /* ---------- hero: intro timeline + parallax ---------- */
   var heroVisible = true, lastS = -1;
   if (hero) {
-    var route = $('#hero-route'), bus = $('#hero-bus'), nEl = $('[data-alt]'), lEl = $('[data-alt-label]');
+    var track = $('.rail__track', hero), fill = track, rstops = $$('.rail__stop', hero);
+    var nEl = $('[data-alt]'), lEl = $('[data-alt-label]');
     var stops = [];
     try { stops = JSON.parse(hero.getAttribute('data-stops')); } catch (e) { /* ignore */ }
     var asc = []; // keep stops while elevation keeps rising (Ayubia sits just below Nathiagali)
     stops.forEach(function (s) { if (!asc.length || s[1] > asc[asc.length - 1][1]) asc.push(s); });
     var A = stops.length ? stops[0][1] : 217, B = asc.length ? asc[asc.length - 1][1] : 2410;
-    var len = route.getTotalLength();
+    // the rail is positioned by elevation, so progress t (0..1) is a straight elevation fraction
     var paint = function (t) {
-      route.style.strokeDashoffset = String(1 - t);
-      var p = route.getPointAtLength(t * len);
-      bus.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+      if (fill) fill.style.setProperty('--t', t.toFixed(4));
       var v = Math.round(A + (B - A) * t);
       nEl.textContent = fmt(v);
       for (var i = asc.length - 1; i >= 0; i--) if (v >= asc[i][1] - 1) { lEl.textContent = asc[i][0]; break; }
+      for (var j = 0; j < rstops.length; j++) rstops[j].classList.toggle('on', v >= +rstops[j].getAttribute('data-e') - 1);
     };
     paint(0);
     if (reduce) paint(1);
@@ -127,9 +127,18 @@
       };
       w.requestAnimationFrame(step);
     }
+    var fx = $('[data-fx]', hero);
+    if (fx && !lite && w.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var mx = 0, my = 0, mq = false;
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        mx = (e.clientX - r.left) / r.width * 2 - 1; my = (e.clientY - r.top) / r.height * 2 - 1;
+        if (!mq) { mq = true; w.requestAnimationFrame(function () { mq = false; fx.style.setProperty('--px', mx.toFixed(3)); fx.style.setProperty('--py', my.toFixed(3)); }); }
+      }, { passive: true });
+    }
     if (hasIO) new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; }).observe(hero);
     var copy = $('.hero__copy', hero);
-    var par = [['.ly-back', 70], ['.ly-mid', 42], ['.ly-route', 30], ['.ly-front', 10], ['.hero__copy', -34]].map(function (a) { return [$(a[0], hero), a[1]]; }).filter(function (a) { return a[0]; });
+    var par = [['.hx', 56], ['.hero__photo', 36], ['.hero__copy', -34]].map(function (a) { return [$(a[0], hero), a[1]]; }).filter(function (a) { return a[0]; });
     if (!lite) subs.push(function (y) {
       if (!heroVisible) return;
       var s = clamp(y / (heroH || 700), 0, 1);

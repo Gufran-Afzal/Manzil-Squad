@@ -1,5 +1,4 @@
-# build output (GitHub Actions builds it fresh on every push)
-dist/
+# generated output is built locally and COMMITTED (Pages serves the branch root): do not ignore it
 
 # dependencies (only the optional image tool uses them)
 node_modules/

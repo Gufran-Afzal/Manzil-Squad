@@ -51,7 +51,7 @@
   },
   "home": {
     "heroImage": "",
-    "_heroHelp": "Leave empty to use the illustrated, parallax hero. Set to an image key from content/images.json (a real photo) to use a photograph instead."
+    "_heroHelp": "Leave empty for the animated motion-graphics hero (no photo, no illustration). Set to the key of a kind \"photo\" image in content/images.json to put a real photograph behind the animation."
   },
   "policies": {
     "lastUpdated": "2026-10-26",

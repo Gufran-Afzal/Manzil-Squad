@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1510">
+<title>Register interest in a trip</title>
+<meta name="description" content="Register your interest in an upcoming student trip from Lahore. Free, no payment, and no commitment until we confirm the details in writing.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Register interest in a trip">
+<meta property="og:description" content="Register your interest in an upcoming student trip from Lahore. Free, no payment, and no commitment until we confirm the details in writing.">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+<link rel="preload" href="./assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./css/site.css?v=7788ee04">
+<script>document.documentElement.className+=' js';setTimeout(function(){window.__a||(document.documentElement.className+=' fb')},4500)</script>
+<script type="application/json" id="site-config">{"root":"./","brand":"[Brand Name]","whatsapp":"","forms":{"mode":"off","endpoint":""},"email":"","dev":false,"analytics":"","analyticsId":""}</script>
+<script defer src="./js/app.js?v=0b20d0df"></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" data-hdr>
+  <div class="hdr__in">
+    <a class="brand" href="./" aria-label="[Brand Name]: home"><svg class="brand-mark" viewBox="0 0 40 28" aria-hidden="true" focusable="false"><path d="M1 27 13 9l6 8 6-11 14 21Z" fill="currentColor"/><circle cx="31" cy="6" r="3.2" fill="var(--c-accent)"/></svg><span>[Brand Name]</span></a>
+    <nav class="nav" aria-label="Main"><ul><li><a href="./trips.html">Trips</a></li><li><a href="./destinations.html">Destinations</a></li><li><a href="./articles.html">Journal</a></li><li><a href="./about-us.html">About</a></li><li><a href="./faq.html">Questions</a></li><li><a href="./contact.html">Contact</a></li></ul></nav>
+    <a class="btn btn--accent btn--small hdr__cta" href="./booking.html">Register interest</a>
+    <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="menu"><span>Menu</span><span class="menu-btn__i" aria-hidden="true"><i></i><i></i></span></button>
+  </div>
+</header>
+<div class="menu" id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <nav aria-label="Main (mobile)"><ol class="menu__list">
+    <li style="--i:0"><a href="./"><small>00</small>Home</a></li>
+    <li style="--i:1"><a href="./trips.html"><small>01</small>Trips</a></li>
+    <li style="--i:2"><a href="./destinations.html"><small>02</small>Destinations</a></li>
+    <li style="--i:3"><a href="./articles.html"><small>03</small>Journal</a></li>
+    <li style="--i:4"><a href="./about-us.html"><small>04</small>About</a></li>
+    <li style="--i:5"><a href="./faq.html"><small>05</small>Questions</a></li>
+    <li style="--i:6"><a href="./contact.html"><small>06</small>Contact</a></li>
+  </ol></nav>
+  <div class="menu__foot"><a class="btn btn--accent" href="./booking.html">Register interest</a></div>
+</div>
+<main id="main">
+<header class="ph ">
+  <div class="hx hx--sm" aria-hidden="true"><i class="hx__b hx__b1"></i><i class="hx__b hx__b2"></i><i class="hx__g"></i></div>
+  <div class="wrap ph__in">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><span aria-current="page">Register interest</span></li></ol></nav>
+    <h1>Register interest</h1>
+    <p class="ph__lede">Tell us you'd like to come. It takes a minute, it's free, and it doesn't reserve a seat or commit you to paying.</p>
+    
+  </div>
+  <svg class="ridge " viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 120L1000 28V120Z" fill="currentColor"/></svg>
+</header>
+<div class="wrap two">
+  <div><div class="form-card" id="register">
+  <div class="form-card__head">
+    <h2 class="form-card__title">Register your interest</h2>
+    <p class="form-card__lede">This is a request, not a booking. Registering does not reserve a seat or commit you to pay. We'll contact you with the confirmed details and next steps.</p>
+    
+  </div>
+  <form class="form" data-booking-form novalidate  data-form-type="booking" aria-describedby="bk-privacy">
+    <input type="hidden" name="formatHint" value="html">
+    <div class="form__row">
+      <label class="field" for="bk-trip">
+        <span class="field__label">Trip</span>
+        <select class="field__input" id="bk-trip" name="tripId" required data-trip-select>
+          <option value="galiyat-weekend-01" data-title="Nathiagali and Ayubia weekend" selected>Nathiagali and Ayubia weekend (registering interest)</option>
+        </select>
+      </label>
+    </div>
+    <div class="form__row form__row--2">
+      <label class="field" for="bk-name">
+        <span class="field__label">Full name</span>
+        <input class="field__input" id="bk-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="bk-name-err">
+        <span class="field__error" id="bk-name-err" data-error-for="name" hidden></span>
+      </label>
+      <label class="field" for="bk-phone">
+        <span class="field__label">Mobile number</span>
+        <input class="field__input" id="bk-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="03XX XXXXXXX" aria-describedby="bk-phone-hint bk-phone-err">
+        <span class="field__hint" id="bk-phone-hint">Pakistani mobile or international format</span>
+        <span class="field__error" id="bk-phone-err" data-error-for="phone" hidden></span>
+      </label>
+    </div>
+    <div class="form__row form__row--2">
+      <label class="field" for="bk-email">
+        <span class="field__label">Email <span class="field__opt">(optional)</span></span>
+        <input class="field__input" id="bk-email" name="email" type="email" autocomplete="email" maxlength="120" aria-describedby="bk-email-err">
+        <span class="field__error" id="bk-email-err" data-error-for="email" hidden></span>
+      </label>
+      <label class="field" for="bk-uni">
+        <span class="field__label">University</span>
+        <input class="field__input" id="bk-uni" name="university" type="text" required maxlength="100" list="bk-uni-list" autocomplete="organization" aria-describedby="bk-uni-err">
+        <datalist id="bk-uni-list"><option value="University of Lahore (UOL)"></option><option value="Other university in Lahore"></option></datalist>
+        <span class="field__error" id="bk-uni-err" data-error-for="university" hidden></span>
+      </label>
+    </div>
+    <div class="form__row form__row--2">
+      <label class="field" for="bk-count">
+        <span class="field__label">Number of people</span>
+        <input class="field__input" id="bk-count" name="participants" type="number" inputmode="numeric" min="1" max="10" value="1" required aria-describedby="bk-count-hint bk-count-err">
+        <span class="field__hint" id="bk-count-hint">Including you. Up to 10 per request.</span>
+        <span class="field__error" id="bk-count-err" data-error-for="participants" hidden></span>
+      </label>
+      <fieldset class="field field--choices">
+        <legend class="field__label">Best way to reach you</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="contactPreference" value="whatsapp" checked> <span>WhatsApp</span></label>
+          <label class="choice"><input type="radio" name="contactPreference" value="call"> <span>Phone call</span></label>
+          <label class="choice"><input type="radio" name="contactPreference" value="email"> <span>Email</span></label>
+        </div>
+        <span class="field__error" data-error-for="contactPreference" hidden></span>
+      </fieldset>
+    </div>
+    <label class="field" for="bk-notes">
+      <span class="field__label">Anything we should know? <span class="field__opt">(optional)</span></span>
+      <textarea class="field__input" id="bk-notes" name="notes" rows="3" maxlength="500" aria-describedby="bk-notes-hint bk-notes-err"></textarea>
+      <span class="field__hint" id="bk-notes-hint">For example: travelling with friends, or a question about the trip. Please don't include CNIC numbers, health details or payment information here; we'll ask privately if anything is needed.</span>
+      <span class="field__error" id="bk-notes-err" data-error-for="notes" hidden></span>
+    </label>
+    <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <div class="form__consents">
+      <label class="check"><input type="checkbox" name="consentPrivacy" value="yes" required aria-describedby="bk-privacy"> <span>I agree that my details can be used to contact me about this trip, as described in the <a href="./privacy-policy.html">privacy policy</a>.</span></label>
+      <label class="check"><input type="checkbox" name="consentTerms" value="yes" required> <span>I understand this is a registration request, not a confirmed booking, and I have read the <a href="./terms.html">booking terms</a>.</span></label>
+      <span class="field__error" data-error-for="consent" hidden></span>
+    </div>
+    <p class="form__privacy" id="bk-privacy">We only use these details to organise the trip. We don't sell or share them, and we never ask for card details or passwords.</p>
+    <div class="form__actions">
+      <button class="btn btn--accent btn--submit" type="submit" data-submit><span class="btn__label">Send registration request</span><span class="btn__spinner" aria-hidden="true"></span></button>
+      
+    </div>
+    <div class="form__status" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
+    <noscript><p class="form__noscript">This form needs JavaScript to send your request. You can contact us using the details on the contact page instead.</p></noscript>
+  </form>
+</div></div>
+  <aside class="aside" aria-labelledby="next-h">
+    <h2 id="next-h">What happens next</h2>
+    <ol class="next">
+      <li><strong>You get a reference number</strong> straight away. Keep it: it helps us find your request.</li>
+      <li><strong>We count the interest.</strong> The trip goes ahead only if enough people register.</li>
+      <li><strong>We confirm the details</strong> and message you with the final date, price and itinerary.</li>
+      <li><strong>You decide.</strong> Your seat is confirmed only after payment and our written confirmation.</li>
+    </ol>
+    <h2>Open for registration</h2>
+    <ul class="mini"><li><a href="./trips/nathiagali-ayubia-weekend.html">Nathiagali and Ayubia weekend</a> <span class="status status--interest"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Registering interest</span></span></li></ul>
+    <p class="form__privacy" style="margin-top:1.4rem">We ask only for what we need to contact you. Never send CNIC images, bank details or medical information through this form.</p>
+  </aside>
+</div>
+</main>
+<footer class="ftr">
+  <svg class="ridge " viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 120L1000 28V120Z" fill="currentColor"/></svg>
+  <div class="wrap">
+    <div class="ftr__top">
+      <p class="ftr__big h2">Weekend trips to the northern hills, planned around students<em>.</em></p>
+      <div class="ftr__cols">
+        <nav aria-label="Travel"><p class="ftr__h">Travel</p><ul><li><a href="./trips.html">Trips</a></li><li><a href="./destinations.html">Destinations</a></li><li><a href="./booking.html">Register interest</a></li><li><a href="./articles.html">Travel journal</a></li></ul></nav><nav aria-label="About"><p class="ftr__h">About</p><ul><li><a href="./about-us.html">Why we exist</a></li><li><a href="./our-approach.html">How we plan</a></li><li><a href="./about-us.html#credits">Image credits</a></li></ul></nav><nav aria-label="Help"><p class="ftr__h">Help</p><ul><li><a href="./faq.html">Questions</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./safety.html">Safety</a></li><li><a href="./cancellation-policy.html">Cancellation and refunds</a></li><li><a href="./terms.html">Terms</a></li><li><a href="./privacy-policy.html">Privacy</a></li></ul></nav>
+        
+      </div>
+    </div>
+    <div class="ftr__contacts">
+      
+      
+    </div>
+    <div class="ftr__fine">
+      <p>© 2026 [Brand Name] · Lahore, Punjab, Pakistan</p>
+      <p>Pre-launch: nothing here is a confirmed booking until we confirm it in writing.</p>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

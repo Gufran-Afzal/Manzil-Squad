@@ -35,10 +35,10 @@ The Portfolio project itself was **not modified**. This travel site is a separat
 
 | Change | Reason |
 |---|---|
-| Output goes to `dist/` | Almost every page is now generated; keeping output out of the source tree avoids accidental edits to generated files and lets GitHub Actions publish a clean folder |
+| Output goes to the repo root, tracked by `.build-manifest.json` (committed; Pages serves the branch) | Almost every page is now generated; keeping output out of the source tree avoids accidental edits to generated files and lets the source stay separate from what is committed as output |
 | Hand-written pages moved to `pages/*.html` with a settings comment and `{{slots}}` | Same idea as the Portfolio's `@markers`, but the build wraps them in the page shell instead of editing them in place |
 | Content validation before building | The build stops with a precise message (file, item, field) for missing fields, duplicate IDs or slugs, bad prices, missing images and broken references |
-| Link and asset check after building | Every internal `href`/`src`/`srcset` and `#anchor` in `dist/` must exist; root-relative links are rejected because they break on project sites |
+| Link and asset check after building | Every internal `href`/`src`/`srcset` and `#anchor` in `the built site` must exist; root-relative links are rejected because they break on project sites |
 | Trip and destination pages are generated per item (`trips/<slug>.html`, `destinations/<slug>.html`) | Static pages per trip are better for search engines and sharing than one `trip.html` filled in by JavaScript |
 | Policy pages are Markdown (`content/pages/*.md`) | Easier for a beginner to edit than HTML |
 | Image manifest (`content/images.json`) | Records source, licence and attribution for every image, generates `srcset`, intrinsic sizes and the public credits page |
@@ -56,9 +56,9 @@ build.mjs ── partials/*.html + pages/*.html + scripts/lib/components.mjs
         │   writes every page with {{root}}-relative links
         │   writes sitemap.xml (and robots.txt only on a root domain)
         ▼
-dist/  ── scripts/lib/links.mjs checks every internal link and asset (stop on errors)
+the built site  ── scripts/lib/links.mjs checks every internal link and asset (stop on errors)
         ▼
-GitHub Actions uploads dist/ to GitHub Pages
+GitHub Pages publishes the built site from the branch
 ```
 
 Builds are deterministic: the same content always produces the same files (dates come from content, not the clock; artwork uses fixed seeds).
@@ -69,4 +69,4 @@ Builds are deterministic: the same content always produces the same files (dates
 
 ## 6. Design system
 
-See `css/design-tokens.css` and docs/CONTENT_GUIDE.md → "Changing the theme". The signature element is the elevation profile ("the climb"): from about 217 m in Lahore to about 2,410 m in Nathiagali, drawn when it scrolls into view, echoed in the hero typography and the layered ridgeline artwork. Trip cards are styled as coach tickets with a tear-off stub for price and status. Statuses always combine text with a distinct shape, never colour alone.
+See `css/design-tokens.css` and the built siteCONTENT_GUIDE.md → "Changing the theme". The signature element is the elevation profile ("the climb"): from about 217 m in Lahore to about 2,410 m in Nathiagali, drawn when it scrolls into view, echoed in the hero typography and the layered ridgeline artwork. Trip cards are styled as coach tickets with a tear-off stub for price and status. Statuses always combine text with a distinct shape, never colour alone.

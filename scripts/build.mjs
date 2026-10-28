@@ -3,7 +3,7 @@
    build.mjs — static site generator (zero runtime dependencies)
 
    Usage
-     node scripts/build.mjs            production build → dist/
+     node scripts/build.mjs            production build → repo root (like the Portfolio site)
      node scripts/build.mjs --dev      also shows setup warnings on the pages
      node scripts/build.mjs --strict   fails if launch placeholders remain
    Environment
@@ -13,9 +13,9 @@
    Pipeline (each step is small and lives in its own file):
      content/*.json|md ──► scripts/lib/content.mjs   load + validate
                        ──► scripts/templates/*.mjs   pages (layout, art, pages)
-     src/css/*.css     ──► dist/css/site.css          concatenated + minified
-     src/js/*.js       ──► dist/js/                   copied (app.js is the only eager file)
-     assets/           ──► dist/assets/               fonts, images (unused art skipped)
+     src/css/*.css     ──► css/site.css          concatenated + minified
+     src/js/*.js       ──► js/                        copied (app.js is the only eager file)
+     assets/           stays where it is (fonts, images are already served from the root)
    ================================================================== */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -30,7 +30,10 @@ import { makeLayout } from './templates/layout.mjs';
 import { buildPages } from './templates/pages.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DIST = path.join(ROOT, 'dist');
+// The site is built INTO THE REPO ROOT and pushed; GitHub Pages serves the branch root (no Actions).
+// Generated files are tracked in .build-manifest.json so a rebuild removes only its own output.
+const DIST = ROOT;
+const MANIFEST = path.join(ROOT, '.build-manifest.json');
 const args = new Set(process.argv.slice(2));
 const DEV = args.has('--dev');
 const STRICT = args.has('--strict');
@@ -49,7 +52,7 @@ const BASE_PATH = SITE_URL ? new URL(SITE_URL).pathname.replace(/\/?$/, '/') : p
 const BRAND = site.brand.name;
 const todo = placeholderReport(C, SITE_URL);
 if (STRICT) {
-  const blocking = todo.filter((t) => !/placeholder illustrations|not confirmed|price is an estimate|operator/.test(t));
+  const blocking = todo.filter((t) => !/animated motion tiles|not confirmed|price is an estimate|operator/.test(t));
   if (blocking.length) {
     console.error('\n--strict: launch placeholders remain. Fix these first:\n');
     blocking.forEach((t) => console.error('  ✗ ' + t));
@@ -59,7 +62,15 @@ if (STRICT) {
 if (DEV && process.env.FORMS_ENDPOINT) site.forms = { ...site.forms, mode: process.env.FORMS_MODE || 'test', endpoint: process.env.FORMS_ENDPOINT };
 
 /* 2. assets: css bundle, js, images, fonts */
-fs.rmSync(DIST, { recursive: true, force: true });
+if (fs.existsSync(MANIFEST)) {
+  for (const f of JSON.parse(fs.readFileSync(MANIFEST, 'utf8'))) {
+    const abs = path.join(ROOT, f);
+    if (abs.startsWith(ROOT + path.sep) && fs.existsSync(abs)) fs.rmSync(abs);
+    for (let d = path.dirname(abs); d !== ROOT && d.startsWith(ROOT); d = path.dirname(d)) {
+      if (fs.existsSync(d) && fs.readdirSync(d).length === 0) fs.rmdirSync(d); else break;
+    }
+  }
+}
 fs.mkdirSync(path.join(DIST, 'css'), { recursive: true });
 const minCss = (s) => s
   .replace(/\/\*[\s\S]*?\*\//g, '')
@@ -72,15 +83,9 @@ const cssDir = path.join(ROOT, 'src/css');
 const css = fs.readdirSync(cssDir).filter((f) => f.endsWith('.css')).sort().map((f) => fs.readFileSync(path.join(cssDir, f), 'utf8')).join('\n');
 fs.writeFileSync(path.join(DIST, 'css/site.css'), DEV ? css : minCss(css));
 copyDir(path.join(ROOT, 'src/js'), path.join(DIST, 'js'));
-const used = new Set(Object.values(images).flatMap((im) => [...im.widths.map((w) => `${im.src}-${w}.webp`), ...(im.jpegFallback ? [`${im.src}.jpg`] : [])]));
-copyDir(path.join(ROOT, 'assets'), path.join(DIST, 'assets'), (p, entry) => {
-  if (entry.isDirectory()) return true;
-  const rel = path.relative(ROOT, p).split(path.sep).join('/');
-  if (rel.startsWith('assets/img/art/')) return used.has(rel);
-  if (rel.startsWith('assets/img/originals/')) return false;
-  return true;
-});
+// assets/ (fonts, icons, images) are served from where they are: nothing to copy.
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
+const generated = ['css/site.css', ...fs.readdirSync(path.join(ROOT, 'src/js')).map((f) => `js/${f}`)];
 const hash = (rel) => crypto.createHash('sha1').update(fs.readFileSync(path.join(DIST, rel))).digest('hex').slice(0, 8);
 const version = { css: hash('css/site.css'), js: hash('js/app.js') };
 
@@ -91,6 +96,7 @@ const out = (file, html, meta = {}) => {
   fs.mkdirSync(path.dirname(f), { recursive: true });
   fs.writeFileSync(f, html);
   written.push({ file, ...meta });
+  generated.push(file);
 };
 const K = makeComponents({ site, images, trips, destinations, dev: DEV, SITE_URL });
 const L = makeLayout({ site, images, BRAND, SITE_URL, BASE_PATH, DEV, todo, K, version });
@@ -115,14 +121,15 @@ if (SITE_URL) {
 }
 
 /* 6. verify */
-const problems = checkLinks(DIST, { basePath: BASE_PATH });
+fs.writeFileSync(MANIFEST, JSON.stringify([...new Set(generated)].sort(), null, 1) + '\n');
+const problems = checkLinks(DIST, { basePath: BASE_PATH, files: generated.filter((f) => f.endsWith('.html')).map((f) => path.join(DIST, f)) });
 if (problems.length) {
   console.error(`\nBroken internal links or assets (${problems.length}):`);
   problems.slice(0, 50).forEach((p) => console.error('  ✗ ' + p));
   process.exit(1);
 }
 const pages = written.filter((w) => w.file.endsWith('.html')).length;
-console.log(`Built ${pages} pages into dist/ (${trips.length} trips, ${destinations.length} destinations, ${articles.length} articles).`);
+console.log(`Built ${pages} pages into the repo root (${trips.length} trips, ${destinations.length} destinations, ${articles.length} articles).`);
 console.log(`Base path: ${BASE_PATH}${SITE_URL ? `  Site URL: ${SITE_URL}` : '  (no site URL: canonical tags and sitemap.xml skipped)'}`);
 console.log(`Forms: ${site.forms.mode}   WhatsApp: ${K.whatsappReady ? 'on' : 'not configured (buttons hidden)'}   Internal links: OK`);
 console.log(`Apps Script property ALLOWED_TRIPS = ${JSON.stringify(Object.fromEntries(trips.filter((t) => AVAILABILITY[t.availability].bookable).map((t) => [t.id, t.title])))}`);
